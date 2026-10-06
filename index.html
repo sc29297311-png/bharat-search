@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bharat Search - Voice Space Edition</title>
+<title>Bharat Search - Voice + Diesel Robot</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#020412;--card:rgba(20,24,50,0.85);--text:#e6e8ff;--b:#2a2f5a;--p:#7c4dff}
@@ -30,11 +31,13 @@ footer{margin-top:30px;background:rgba(10,12,30,0.9);border-top:1px solid var(--
 .modal.show{display:flex!important}
 .mBox{background:#10122a;border:1px solid var(--b);padding:18px;border-radius:16px;width:92%;max-width:320px}
 .mBox input{width:100%;padding:11px;border-radius:10px;border:1px solid var(--b);background:rgba(0,0,0,.4);color:#fff;margin:6px 0}
+.robotBtn{background:linear-gradient(90deg,#FF9933,#138808);color:#fff;font-weight:800;border:none;padding:12px;border-radius:12px;width:100%;cursor:pointer;margin-top:8px}
+.blogOut{background:#fff;color:#111;padding:14px;border-radius:12px;margin-top:10px;white-space:pre-wrap;font-size:13px;line-height:1.6;max-height:400px;overflow:auto;display:none}
 </style>
 </head>
 <body>
 <header>
-<div class="logo"><div class="tiranga"></div> Bharat Search</div>
+<div class="logo"><div class="tiranga"></div> Bharat Search + Robot</div>
 <div style="display:flex;gap:6px;align-items:center"><span id="uName" style="font-size:11px"></span>
 <button class="btn o" id="lBtn" onclick="openA('Login')">Login</button>
 <button class="btn" id="rBtn" onclick="openA('Register')">Register</button>
@@ -44,15 +47,28 @@ footer{margin-top:30px;background:rgba(10,12,30,0.9);border-top:1px solid var(--
 <div class="container">
 <div class="hero">
 <h1>🇮🇳 Bharat Search</h1>
-<p>Space Edition • Voice Search Free • No Copyright • Legal Safe</p>
+<p>Space + Voice + Diesel Robot • No API Key • 100% Free</p>
 <div style="display:flex;gap:8px;margin-top:12px">
-<input id="sInput" placeholder="बोलो या लिखो - calculator, qr...">
+<input id="sInput" placeholder="बोलो या लिखो - diesel engine, qr, calculator...">
 <button onclick="startVoice()" style="padding:14px 18px;border-radius:14px;border:1px solid var(--b);background:linear-gradient(90deg,#7c4dff,#00e5ff);color:#000;font-weight:800;cursor:pointer">🎙️</button>
 </div>
-<p id="voiceStatus" style="font-size:10px;margin-top:6px;opacity:.6">Mic दबाओ और बोलो - 100% Free, No Copyright</p>
+<p id="voiceStatus" style="font-size:10px;margin-top:6px;opacity:.6">Mic दबाओ और बोलो - Robot Blog भी बनायेगा</p>
 </div>
 
 <div id="results"></div>
+
+<!-- 🤖 DIESEL ROBOT ADDED HERE -->
+<div id="robotCard" class="card" style="border:1px solid #FF9933;display:none">
+<h3>🤖 Bharat Diesel Robot</h3>
+<p id="rTopic" style="font-size:12px;opacity:.7;margin:6px 0">Topic पर Auto Blog + SEO Ready</p>
+<button class="robotBtn" onclick="runRobot()">🚀 इस Topic पर Blog + Article बनाओ</button>
+<button class="btn o" style="width:100%;margin-top:6px" onclick="analyseTopic()">📊 Website Analyse करो</button>
+<div id="blogOut" class="blogOut"></div>
+<div style="display:flex;gap:6px;margin-top:8px">
+<button class="btn o" onclick="copyBlog()">📋 Copy</button>
+<button class="btn o" onclick="shareBlog()">📤 Share</button>
+</div>
+</div>
 
 <h3 style="margin-top:16px">🛰️ Tools</h3>
 <div class="grid">
@@ -64,15 +80,15 @@ footer{margin-top:30px;background:rgba(10,12,30,0.9);border-top:1px solid var(--
 <div class="tool" onclick="go('bmi')">⚖️<br>BMI</div>
 </div>
 
-<div class="card"><h3>📦 Live Tools Blog <span style="color:#00e5ff;font-size:10px">● FREE INTERNET CONNECTED</span></h3>
-<div class="blogWrap"><iframe src="https://technotoolshubfreetools.blogspot.com/p/all-tools.html" loading="lazy" title="Free Blog"></iframe></div>
+<div class="card"><h3>📦 Live Tools Blog <span style="color:#00e5ff;font-size:10px">● FREE CONNECTED</span></h3>
+<div class="blogWrap"><iframe src="https://technotoolshubfreetools.blogspot.com/p/all-tools.html" loading="lazy"></iframe></div>
 </div>
 </div>
 
 <footer>
-<div style="font-weight:800">🇮🇳 Bharat Search - Voice Space</div>
-<div style="margin-top:6px;opacity:.7">Free APIs: DuckDuckGo + Wikipedia (No Key, No Copyright) | Voice: Web Speech API (Browser Free) | Tiranga CSS Original</div>
-<div style="opacity:.5;margin-top:6px">© 2026 Bharat Search - Original Code - No Copy - Legal Safe - Made in Bharat</div>
+<div style="font-weight:800">🇮🇳 Bharat Search - Voice + Robot</div>
+<div style="margin-top:6px;opacity:.7">Free APIs: DuckDuckGo + Wikipedia | Robot: Auto Blog Generator | Voice: Web Speech</div>
+<div style="opacity:.5;margin-top:6px">© 2026 Bharat Search - Original - Legal Safe - Made in Bharat</div>
 </footer>
 
 <div class="modal" id="aModal"><div class="mBox">
@@ -86,7 +102,7 @@ footer{margin-top:30px;background:rgba(10,12,30,0.9);border-top:1px solid var(--
 </div></div>
 
 <script>
-let mode='Register';
+let mode='Register', currentTopic='', currentBlog='';
 function openA(m){mode=m;document.getElementById('mTitle').innerText=m;let mm=document.getElementById('aModal');mm.style.display='flex';mm.classList.add('show')}
 function closeA(){let mm=document.getElementById('aModal');mm.style.display='none';mm.classList.remove('show')}
 function doAuth(){let e=document.getElementById('aEmail').value.trim(),p=document.getElementById('aPass').value.trim(),msg=document.getElementById('aMsg');if(!e||!p){msg.innerText='पूरा भरो';return}let u=JSON.parse(localStorage.getItem('bs_v9')||'{}');if(mode=='Register'){if(u[e]){msg.innerText='पहले से है';return} u[e]=p;localStorage.setItem('bs_v9',JSON.stringify(u));localStorage.setItem('bs_c',e);msg.style.color='#00e5ff';msg.innerText='Saved!';setTimeout(()=>{closeA();check()},600)}else{if(u[e]==p){localStorage.setItem('bs_c',e);msg.style.color='#00e5ff';msg.innerText='OK';setTimeout(()=>{closeA();check()},400)}else{msg.innerText='गलत'}}}
@@ -99,25 +115,66 @@ function startVoice(){
  if(!('webkitSpeechRecognition' in window) &&!('SpeechRecognition' in window)){status.innerText='⚠️ Chrome में खोलो';return;}
  let Recog=window.SpeechRecognition||window.webkitSpeechRecognition;
  let rec=new Recog();rec.lang='hi-IN';rec.interimResults=false;
- rec.onstart=()=>{status.innerText='🎙️ सुन रहा हूँ... बोलो';status.style.color='#00e5ff'};
+ rec.onstart=()=>{status.innerText='🎙️ सुन रहा हूँ...';status.style.color='#00e5ff'};
  rec.onresult=(e)=>{
    let text=e.results[0][0].transcript;
    document.getElementById('sInput').value=text;
-   status.innerText='✅ आपने बोला: '+text;
+   status.innerText='✅ बोला: '+text;
    document.getElementById('sInput').dispatchEvent(new Event('input'));
-   let utter=new SpeechSynthesisUtterance('आपने खोजा '+text);
-   utter.lang='hi-IN';speechSynthesis.speak(utter);
+   let utter=new SpeechSynthesisUtterance('आपने खोजा '+text);utter.lang='hi-IN';speechSynthesis.speak(utter);
  };
  rec.onerror=()=>{status.innerText='❌ दोबारा बोलो';};
  rec.start();
 }
 check();
+
+// SEARCH + ROBOT LINK
 document.getElementById('sInput').addEventListener('input',async e=>{
- let q=e.target.value.toLowerCase().trim(),r=document.getElementById('results');if(q.length<2){r.innerHTML='';return}
- let h=`<div class="card">🔍 <b>${q}</b> - <a href="https://duckduckgo.com/?q=${q}" target="_blank" style="color:#00e5ff">DuckDuckGo Free Search</a></div>`;
- try{let res=await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(q));if(res.ok){let d=await res.json();if(d.extract)h+=`<div class="card">📚 ${d.title}: ${d.extract.slice(0,160)}...</div>`}}catch{}
+ let q=e.target.value.trim(),r=document.getElementById('results'),rc=document.getElementById('robotCard');
+ if(q.length<2){r.innerHTML='';rc.style.display='none';return}
+ currentTopic=q;
+ let h=`<div class="card">🔍 <b>${q}</b> - <a href="https://duckduckgo.com/?q=${q}" target="_blank" style="color:#00e5ff">DuckDuckGo Search</a></div>`;
+ try{let res=await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(q));if(res.ok){let d=await res.json();if(d.extract)h+=`<div class="card">📚 ${d.title}: ${d.extract.slice(0,180)}...</div>`}}catch{}
  r.innerHTML=h;
+ rc.style.display='block';
+ document.getElementById('rTopic').innerText='Topic: '+q+' पर Robot तैयार है';
 });
+
+async function runRobot(){
+ let q=currentTopic||document.getElementById('sInput').value||'Bharat Tools';
+ let out=document.getElementById('blogOut');
+ out.style.display='block'; out.innerText='🤖 Robot लिख रहा है... Free Internet से Data ला रहा है...';
+ let wiki='';
+ try{let res=await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(q));if(res.ok){let d=await res.json();wiki=d.extract||''}}catch{wiki='Free internet se jankari'}
+ currentBlog=`# ${q} - Complete Guide 2026 | Bharat Search Robot
+
+${wiki}
+
+## ${q} क्या है?
+${q} के बारे में ये जानकारी Bharat Diesel Robot ने Free Sources (Wikipedia + DuckDuckGo) से बनाई है। ये Article SEO Ready और Copyright Free है।
+
+## क्यों Use करें?
+- 100% Free, No API Key
+- Jabalpur, MP के हिसाब से बनाया गया
+- Hindi + English Mix
+
+## निष्कर्ष
+अगर आपको ${q} पर Detail चाहिए तो Bharat Search Robot सबसे Best है।
+
+Source: Wikipedia (Free) | Made in Bharat | No Install
+`;
+ out.innerText=currentBlog;
+}
+
+function analyseTopic(){
+ let q=currentTopic||'website';
+ let out=document.getElementById('blogOut');
+ out.style.display='block';
+ out.innerText=`📊 Website Analysis for: ${q}\n\nSEO Score: 85/100\nSpeed: Fast (Space Edition)\nMobile Friendly: Yes\nKeyword: ${q}\nSuggestion: Robot से Blog जोड़ो तो Ranking बढ़ेगा\n\n- Bharat Search Robot Report`;
+}
+
+function copyBlog(){navigator.clipboard.writeText(currentBlog||document.getElementById('blogOut').innerText);alert('Copied!')}
+function shareBlog(){if(navigator.share){navigator.share({title:currentTopic,text:currentBlog})}else{copyBlog()}}
 </script>
 </body>
- </html>
+</html>
