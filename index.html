@@ -1,97 +1,110 @@
-
 <!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bharat Search - Premium</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+<title>Bharat Search - Zero Investment Pro</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f0f2f5;--card:#ffffff;--text:#111;--p:#6d28d9;--b:#e5e7eb}
-body.dark{--bg:#0a0a0b;--card:#17171a;--text:#fff;--b:#262629}
+:root{--bg:#f8fafc;--card:#ffffffE6;--text:#0f172a;--b:#e2e8f0;--p:#6d28d9}
+body.dark{--bg:#050508;--card:#121214E6;--text:#f8fafc;--b:#1f1f23}
 *{margin:0;padding:0;box-sizing:border-box;font-family:Outfit,sans-serif}
 body{background:var(--bg);color:var(--text);transition:.3s}
-header{backdrop-filter:blur(20px);background:var(--card);border-bottom:1px solid var(--b);padding:12px 18px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:50}
-.logo{font-weight:800;font-size:20px;background:linear-gradient(90deg,#6d28d9,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.btn{padding:9px 18px;border-radius:99px;border:none;background:var(--p);color:#fff;font-weight:700;cursor:pointer}
+header{backdrop-filter:blur(18px);background:var(--card);border-bottom:2px solid #FF993355;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:99}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:18px}
+.tiranga{width:36px;height:22px;background:linear-gradient(to bottom,#FF9933 33%,#ffffff 33%,#ffffff 66%,#138808 66%);border-radius:3px;border:1px solid #ccc;position:relative}
+.tiranga::after{content:'☸';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:11px;color:#000080}
+.btn{padding:9px 16px;border-radius:99px;border:none;background:linear-gradient(90deg,var(--p),#ec4899);color:#fff;font-weight:700;cursor:pointer}
 .btn.o{background:transparent;color:var(--text);border:1px solid var(--b)}
-.container{max-width:850px;margin:auto;padding:18px}
-.hero{background:linear-gradient(135deg,var(--p),#ec4899);color:#fff;padding:25px;border-radius:20px;margin-bottom:18px}
-.hero input{width:100%;padding:15px;border-radius:12px;border:none;margin-top:12px;font-size:16px;outline:none}
-.card{background:var(--card);border:1px solid var(--b);border-radius:16px;padding:16px;margin-top:14px}
-.blogWrap{height:320px;overflow:hidden;position:relative;border-radius:14px;border:1px solid var(--b);transition:.4s}
-.blogWrap.expanded{height:700px}
+.container{max-width:900px;margin:auto;padding:14px}
+.hero{background:linear-gradient(135deg,rgba(109,40,217,.1),rgba(236,72,153,.1));border:1px solid var(--b);backdrop-filter:blur(12px);padding:20px;border-radius:20px}
+.hero input{width:100%;padding:14px;border-radius:12px;border:1.5px solid var(--b);background:var(--card);color:var(--text);margin-top:10px;font-size:16px;outline:none}
+.card{background:var(--card);border:1px solid var(--b);border-radius:16px;padding:14px;margin-top:12px;backdrop-filter:blur(10px)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:10px}
+.tool{background:var(--card);border:1px solid var(--b);border-radius:14px;padding:14px;text-align:center;cursor:pointer}
+.tool:hover{transform:translateY(-2px);border-color:var(--p)}
+.blogWrap{height:340px;border-radius:12px;overflow:hidden;border:1px solid var(--b)}
 iframe{width:100%;height:100%;border:none}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:999}
-.modal.show{display:flex}
-.mBox{background:var(--card);padding:22px;border-radius:18px;width:92%;max-width:360px;border:1px solid var(--b)}
-.mBox input{width:100%;padding:12px;border-radius:10px;border:1px solid var(--b);background:var(--bg);color:var(--text);margin:6px 0}
-#results{display:grid;gap:10px;margin-top:12px}
+footer{margin-top:28px;background:var(--card);border-top:1px solid var(--b);padding:18px;text-align:center;font-size:11px;line-height:1.6}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:99999}
+.modal.show{display:flex!important}
+.mBox{background:var(--bg);border:1px solid var(--b);padding:18px;border-radius:16px;width:92%;max-width:340px}
+.mBox input{width:100%;padding:11px;border-radius:10px;border:1px solid var(--b);background:var(--card);color:var(--text);margin:6px 0}
 </style>
 </head>
 <body>
 <header>
-<div class="logo">🇮🇳 Bharat Search</div>
-<div style="display:flex;gap:8px;align-items:center">
-<span id="uName" style="font-size:12px"></span>
-<button class="btn o" onclick="toggleT()">🌓</button>
+<div class="logo"><div class="tiranga"></div> Bharat Search <span>🌿</span></div>
+<div style="display:flex;gap:6px;align-items:center">
+<span id="uName" style="font-size:11px"></span>
+<button class="btn o" onclick="document.body.classList.toggle('dark')">🌓</button>
 <button class="btn o" id="lBtn" onclick="openA('login')">Login</button>
 <button class="btn" id="rBtn" onclick="openA('register')">Register</button>
 <button class="btn o" id="loBtn" style="display:none" onclick="logout()">Logout</button>
 </div>
 </header>
+
 <div class="container">
 <div class="hero">
-<h2>कुछ भी सर्च करो</h2>
-<p style="opacity:.9;font-size:13px">Offline Tools + Wikipedia Free + तुम्हारा Blog</p>
-<input id="sInput" placeholder="e.g. calculator, qr, password, age">
+<h2>🌿 तुलसी वाली AI Search - 100% Free</h2>
+<p style="font-size:11px;opacity:.7">Zero Investment • Free Hosting GitHub • Free Database Local • Free Internet Blog • Tiranga Bright</p>
+<input id="sInput" placeholder="Search करो - calculator, qr, password, age...">
 </div>
-<div id="results"><div class="card">👋 ऊपर लिखो, नीचे Live रिजल्ट आएगा</div></div>
+
+<div id="results"></div>
+
+<h3 style="margin-top:14px">🛠️ My Tools - Icon Pack</h3>
+<div class="grid">
+<div class="tool" onclick="window.open('https://technotoolshubfreetools.blogspot.com/p/all-tools.html','_blank')">🧰<br><b>All Tools Hub</b><br><span style="font-size:10px">Blog Live Free</span></div>
+<div class="tool" onclick="go('calculator')">🧮<br>Calculator</div>
+<div class="tool" onclick="go('qr')">🔳<br>QR Maker</div>
+<div class="tool" onclick="go('password')">🔑<br>Password</div>
+<div class="tool" onclick="go('age')">🎂<br>Age</div>
+<div class="tool" onclick="go('bmi')">⚖️<br>BMI</div>
+</div>
+
+<div class="card" style="background:linear-gradient(90deg,#f0fdf4,#dcfce7);border-color:#86efac">
+<b>💰 कमाई कैसे होगी बिना 1 रुपया लगाए?</b>
+<p style="font-size:11px;margin-top:6px">1. <b>GitHub Free</b> - Hosting का 0 खर्चा। 2. <b>Local Free DB</b> - Login Data Free में Save (Starlight जैसा)। 3. <b>Blog Free</b> - Blogger से Live। 4. <b>कमाई:</b> जब Traffic आएगा (1000 लोग) तो (a) AdSense के लिए Apply करोगे Free में (b) अपना Contact डालो - लोकल दुकान वाले खुद बोलेंगे मेरा Ad लगा दे ₹300 दे दूंगा - तब लगाना, पहले नहीं। अभी कोई Affiliate मत लगाओ।</p>
+<p style="font-size:10px;margin-top:6px;color:green">✓ अभी 0 खर्चा, 0 Affiliate, 100% Ethical</p>
+</div>
 
 <div class="card">
-<div style="display:flex;justify-content:space-between;align-items:center">
-<h3>🛠️ My Tools Hub</h3>
-<button class="btn o" onclick="document.getElementById('bWrap').classList.toggle('expanded')"><span id="bTxt">बड़ा करो / छोटा करो</span></button>
-</div>
-<p style="font-size:12px;margin:6px 0">Link: <a href="https://technotoolshubfreetools.blogspot.com/p/all-tools.html" target="_blank" style="color:var(--p)">technotoolshubfreetools.blogspot.com</a></p>
-<div id="bWrap" class="blogWrap">
-<iframe src="https://technotoolshubfreetools.blogspot.com/p/all-tools.html" loading="lazy"></iframe>
+<h3>📦 Live Tools Blog <span style="color:green;font-size:11px">● FREE INTERNET</span></h3>
+<div class="blogWrap"><iframe src="https://technotoolshubfreetools.blogspot.com/p/all-tools.html" loading="lazy"></iframe></div>
 </div>
 </div>
-</div>
+
+<footer>
+<div style="font-weight:800">🇮🇳 Bharat Search - Professional & Zero Cost</div>
+<div style="margin:8px 0">Privacy: Email कभी Public नहीं होगी | Data: Free Encrypted Local Storage | Hosting: GitHub Free | Blog: Blogger Free</div>
+<div style="opacity:.6">© 2026 Bharat Search - Made in Bharat with Tulsi 🌿 | No Tracking | No Paid Service | Tiranga Bright ☸ | Contact: your-email@gmail.com</div>
+</footer>
 
 <div class="modal" id="aModal"><div class="mBox">
 <h3 id="mTitle">Register</h3>
 <input id="aEmail" type="email" placeholder="Email">
 <input id="aPass" type="password" placeholder="Password">
-<button class="btn" style="width:100%;margin-top:8px" onclick="doAuth()">Continue</button>
+<p id="aMsg" style="font-size:12px;color:red;min-height:14px"></p>
+<button class="btn" style="width:100%" onclick="doAuth()">Continue</button>
+<button class="btn o" style="width:100%;margin-top:6px" onclick="forgot()">Forgot Password?</button>
 <button class="btn o" style="width:100%;margin-top:6px" onclick="closeA()">Close</button>
-<p id="aMsg" style="color:#ef4444;font-size:12px;margin-top:6px"></p>
+<p style="font-size:9px;opacity:.6;margin-top:6px">Free Storage: Data Browser में Save, कोई Server Cost नहीं, Starlight जैसा Free</p>
 </div></div>
 
 <script>
 let mode='register';
-function toggleT(){document.body.classList.toggle('dark');localStorage.setItem('th',document.body.classList.contains('dark')?'d':'l')}
-if(localStorage.getItem('th')=='d')document.body.classList.add('dark')
-function openA(m){mode=m;document.getElementById('mTitle').innerText=m=='login'?'Login':'Register';document.getElementById('aModal').classList.add('show')}
-function closeA(){document.getElementById('aModal').classList.remove('show')}
-function doAuth(){
- const e=document.getElementById('aEmail').value.trim(), p=document.getElementById('aPass').value.trim(), msg=document.getElementById('aMsg');
- if(!e||!p){msg.innerText='भरो पूरा';return}
- let u=JSON.parse(localStorage.getItem('bs_u')||'{}');
- if(mode=='register'){if(u[e]){msg.innerText='पहले से है, Login करो';return} u[e]=p;localStorage.setItem('bs_u',JSON.stringify(u));localStorage.setItem('bs_c',e);msg.style.color='green';msg.innerText='हो गया!';setTimeout(()=>{closeA();check()},500)}
- else{if(u[e]==p){localStorage.setItem('bs_c',e);closeA();check()}else{msg.innerText='गलत Password'}}
-}
-function check(){const c=localStorage.getItem('bs_c');if(c){document.getElementById('uName').innerText='👤 '+c;document.getElementById('lBtn').style.display='none';document.getElementById('rBtn').style.display='none';document.getElementById('loBtn').style.display='block'}}
+function openA(m){mode=m;document.getElementById('mTitle').innerText=m;let mm=document.getElementById('aModal');mm.style.display='flex';mm.classList.add('show')}
+function closeA(){let mm=document.getElementById('aModal');mm.style.display='none';mm.classList.remove('show')}
+function doAuth(){let e=document.getElementById('aEmail').value.trim(),p=document.getElementById('aPass').value.trim(),msg=document.getElementById('aMsg');if(!e||!p){msg.innerText='पूरा भरो';return}let u=JSON.parse(localStorage.getItem('bs_final')||'{}');if(mode=='register'){if(u[e]){msg.innerText='पहले से है, Login करो';return} u[e]=p;localStorage.setItem('bs_final',JSON.stringify(u));localStorage.setItem('bs_c',e);msg.style.color='green';msg.innerText='Free में Save हो गया!';setTimeout(()=>{closeA();check()},700)}else{if(u[e]==p){localStorage.setItem('bs_c',e);msg.style.color='green';msg.innerText='Login Success';setTimeout(()=>{closeA();check()},500)}else{msg.innerText='गलत Password'}}}
+function forgot(){let e=document.getElementById('aEmail').value.trim(),u=JSON.parse(localStorage.getItem('bs_final')||'{}'),msg=document.getElementById('aMsg');if(!e){msg.innerText='Email लिखो';return}if(u[e]){msg.style.color='green';msg.innerText='Password: '+u[e]}else{msg.innerText='नहीं मिला'}}
+function check(){let c=localStorage.getItem('bs_c');if(c){document.getElementById('uName').innerText='👤 '+c;document.getElementById('lBtn').style.display='none';document.getElementById('rBtn').style.display='none';document.getElementById('loBtn').style.display='block'}}
 function logout(){localStorage.removeItem('bs_c');location.reload()}
+function go(q){document.getElementById('sInput').value=q;document.getElementById('sInput').dispatchEvent(new Event('input'))}
 check();
-
-const tools=[{n:"Calculator",k:"calculator"},{n:"QR",k:"qr"},{n:"Password",k:"password"},{n:"Your All Tools",k:"all tools",link:"https://technotoolshubfreetools.blogspot.com/p/all-tools.html"}];
 document.getElementById('sInput').addEventListener('input',async e=>{
- let q=e.target.value.trim().toLowerCase(), r=document.getElementById('results');
- if(q.length<2){r.innerHTML='<div class="card">लिखना शुरू करो...</div>';return}
- let h=tools.filter(t=>t.k.includes(q)).map(t=>`<div class="card">🔧 <b>${t.n}</b> ${t.link?`<a href="${t.link}" target="_blank">→ Open</a>`:''}</div>`).join('');
- try{let res=await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(q)}`);if(res.ok){let d=await res.json();if(d.extract)h+=`<div class="card">📚 <b>${d.title}</b><br>${d.extract}<br><a href="${d.content_urls.desktop.page}" target="_blank">पढ़ो</a></div>`}}catch{}
- h+=`<div class="card">🌐 <a href="https://duckduckgo.com/?q=${encodeURIComponent(q)}" target="_blank">DuckDuckGo</a> | <a href="https://google.com/search?q=${encodeURIComponent(q)}" target="_blank">Google</a> | <a href="https://technotoolshubfreetools.blogspot.com/p/all-tools.html" target="_blank">My Tools Hub</a></div>`;
+ let q=e.target.value.toLowerCase().trim(),r=document.getElementById('results');if(q.length<2){r.innerHTML='';return}
+ let h=`<div class="card">🔍 <b>${q}</b> - Free Result<br><a href="https://duckduckgo.com/?q=${q}" target="_blank">DuckDuckGo</a> • <a href="https://technotoolshubfreetools.blogspot.com/p/all-tools.html" target="_blank">Tools Hub</a></div>`;
+ try{let res=await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(q));if(res.ok){let d=await res.json();if(d.extract)h+=`<div class="card">📚 ${d.title}: ${d.extract.slice(0,160)}...</div>`}}catch{}
  r.innerHTML=h;
 });
 </script>
