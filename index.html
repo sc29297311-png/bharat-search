@@ -1,123 +1,99 @@
+
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bharat Search - Technotools Hub</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bharat Search - Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f8f9ff;--card:#ffffff;--text:#1a1a1a;--primary:#4f46e5;--border:#e5e7eb}
-body.dark{--bg:#0f0f0f;--card:#1e1e1e;--text:#f1f1f1;--border:#2e2e2e}
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui,sans-serif}
+:root{--bg:#f0f2f5;--card:#ffffff;--text:#111;--p:#6d28d9;--b:#e5e7eb}
+body.dark{--bg:#0a0a0b;--card:#17171a;--text:#fff;--b:#262629}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Outfit,sans-serif}
 body{background:var(--bg);color:var(--text);transition:.3s}
-header{display:flex;justify-content:space-between;align-items:center;padding:15px 20px;background:var(--card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10}
-.logo{font-weight:800;font-size:22px;color:var(--primary)}
-.nav{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.btn{padding:8px 16px;border-radius:20px;border:none;cursor:pointer;background:var(--primary);color:white;font-weight:600}
-.btn.outline{background:transparent;color:var(--text);border:1px solid var(--border)}
-.container{max-width:900px;margin:30px auto;padding:0 15px}
-.searchBox{background:var(--card);padding:20px;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,.05);border:1px solid var(--border)}
-.searchBox input{width:100%;padding:16px;border-radius:12px;border:1px solid var(--border);font-size:18px;outline:none;background:var(--bg);color:var(--text)}
-#results{margin-top:20px;display:grid;gap:12px}
-.card{background:var(--card);padding:15px;border-radius:12px;border:1px solid var(--border)}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;place-items:center;z-index:100}
-.modal.active{display:grid}
-.modalBox{background:var(--card);padding:25px;border-radius:16px;width:90%;max-width:380px}
-.modalBox input{width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text)}
-iframe{width:100%;height:600px;border:1px solid var(--border);border-radius:12px}
-a{color:var(--primary);text-decoration:none;font-weight:600}
-.footer{text-align:center;padding:30px;font-size:12px;color:gray}
+header{backdrop-filter:blur(20px);background:var(--card);border-bottom:1px solid var(--b);padding:12px 18px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:50}
+.logo{font-weight:800;font-size:20px;background:linear-gradient(90deg,#6d28d9,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.btn{padding:9px 18px;border-radius:99px;border:none;background:var(--p);color:#fff;font-weight:700;cursor:pointer}
+.btn.o{background:transparent;color:var(--text);border:1px solid var(--b)}
+.container{max-width:850px;margin:auto;padding:18px}
+.hero{background:linear-gradient(135deg,var(--p),#ec4899);color:#fff;padding:25px;border-radius:20px;margin-bottom:18px}
+.hero input{width:100%;padding:15px;border-radius:12px;border:none;margin-top:12px;font-size:16px;outline:none}
+.card{background:var(--card);border:1px solid var(--b);border-radius:16px;padding:16px;margin-top:14px}
+.blogWrap{height:320px;overflow:hidden;position:relative;border-radius:14px;border:1px solid var(--b);transition:.4s}
+.blogWrap.expanded{height:700px}
+iframe{width:100%;height:100%;border:none}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;z-index:999}
+.modal.show{display:flex}
+.mBox{background:var(--card);padding:22px;border-radius:18px;width:92%;max-width:360px;border:1px solid var(--b)}
+.mBox input{width:100%;padding:12px;border-radius:10px;border:1px solid var(--b);background:var(--bg);color:var(--text);margin:6px 0}
+#results{display:grid;gap:10px;margin-top:12px}
 </style>
 </head>
 <body>
 <header>
 <div class="logo">🇮🇳 Bharat Search</div>
-<div class="nav">
-<button class="btn outline" onclick="toggleTheme()">🌙/☀️</button>
-<span id="userInfo" style="font-size:13px"></span>
-<button class="btn outline" id="loginBtn" onclick="openModal('login')">Login</button>
-<button class="btn" id="regBtn" onclick="openModal('register')">Register</button>
-<button class="btn outline" id="logoutBtn" style="display:none" onclick="logout()">Logout</button>
+<div style="display:flex;gap:8px;align-items:center">
+<span id="uName" style="font-size:12px"></span>
+<button class="btn o" onclick="toggleT()">🌓</button>
+<button class="btn o" id="lBtn" onclick="openA('login')">Login</button>
+<button class="btn" id="rBtn" onclick="openA('register')">Register</button>
+<button class="btn o" id="loBtn" style="display:none" onclick="logout()">Logout</button>
 </div>
 </header>
-
 <div class="container">
-<div class="searchBox">
-<input type="text" id="searchInput" placeholder="सर्च करो... e.g. calculator, qr, password, virat kohli">
-<div id="results">
-<div class="card">👋 नमस्ते! नीचे तुम्हारे Blog के सारे Tools Live हैं। ऊपर सर्च करो तो Wikipedia + Google भी दिखेगा।</div>
+<div class="hero">
+<h2>कुछ भी सर्च करो</h2>
+<p style="opacity:.9;font-size:13px">Offline Tools + Wikipedia Free + तुम्हारा Blog</p>
+<input id="sInput" placeholder="e.g. calculator, qr, password, age">
+</div>
+<div id="results"><div class="card">👋 ऊपर लिखो, नीचे Live रिजल्ट आएगा</div></div>
+
+<div class="card">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<h3>🛠️ My Tools Hub</h3>
+<button class="btn o" onclick="document.getElementById('bWrap').classList.toggle('expanded')"><span id="bTxt">बड़ा करो / छोटा करो</span></button>
+</div>
+<p style="font-size:12px;margin:6px 0">Link: <a href="https://technotoolshubfreetools.blogspot.com/p/all-tools.html" target="_blank" style="color:var(--p)">technotoolshubfreetools.blogspot.com</a></p>
+<div id="bWrap" class="blogWrap">
+<iframe src="https://technotoolshubfreetools.blogspot.com/p/all-tools.html" loading="lazy"></iframe>
+</div>
 </div>
 </div>
 
-<div class="card" style="margin-top:25px">
-<h3>🛠️ My Tools Hub - <a href="https://technotoolshubfreetools.blogspot.com/p/all-tools.html" target="_blank">technotoolshubfreetools.blogspot.com</a></h3>
-<p style="font-size:13px;margin:8px 0;color:gray">ये तुम्हारा खुद का Blog है, इसलिए 0% Copyright। यहाँ तुम्हारे अनगिनत Tools सीधा Bharat Search में चलेंगे।</p>
-<iframe src="https://technotoolshubfreetools.blogspot.com/p/all-tools.html" loading="lazy" title="Techno Tools Hub"></iframe>
-<div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-<a href="https://technotoolshubfreetools.blogspot.com/p/all-tools.html" target="_blank" class="btn outline">↗️ Blog को Fullscreen में खोलो</a>
-</div>
-</div>
-</div>
-
-<div class="footer">100% Open Source | Made by You | Blog Content: Yours so No Copyright | Free Search: Wikipedia + DuckDuckGo</div>
-
-<div class="modal" id="authModal">
-<div class="modalBox">
-<h3 id="modalTitle">Register</h3>
-<input type="email" id="authEmail" placeholder="Email">
-<input type="password" id="authPass" placeholder="Password">
-<button class="btn" style="width:100%;margin-top:10px" onclick="handleAuth()">Continue</button>
-<button class="btn outline" style="width:100%;margin-top:8px" onclick="closeModal()">Close</button>
-<p id="authMsg" style="font-size:12px;margin-top:8px;color:red"></p>
-</div>
-</div>
+<div class="modal" id="aModal"><div class="mBox">
+<h3 id="mTitle">Register</h3>
+<input id="aEmail" type="email" placeholder="Email">
+<input id="aPass" type="password" placeholder="Password">
+<button class="btn" style="width:100%;margin-top:8px" onclick="doAuth()">Continue</button>
+<button class="btn o" style="width:100%;margin-top:6px" onclick="closeA()">Close</button>
+<p id="aMsg" style="color:#ef4444;font-size:12px;margin-top:6px"></p>
+</div></div>
 
 <script>
-function toggleTheme(){document.body.classList.toggle('dark');localStorage.setItem('theme',document.body.classList.contains('dark')?'dark':'light')}
-if(localStorage.getItem('theme')==='dark') document.body.classList.add('dark')
-function openModal(m){currentMode=m;document.getElementById('modalTitle').innerText=m==='login'?'Login':'Register';document.getElementById('authModal').classList.add('active')}
-function closeModal(){document.getElementById('authModal').classList.remove('active')}
-let currentMode='register';
-function handleAuth(){
- const e=document.getElementById('authEmail').value.trim(), p=document.getElementById('authPass').value.trim(), msg=document.getElementById('authMsg');
- if(!e||!p){msg.innerText="Email Password भरो";return}
- let users=JSON.parse(localStorage.getItem('bs_users')||'{}');
- if(currentMode==='register'){
-  if(users[e]){msg.innerText="पहले से है, Login करो";return}
-  users[e]=p;localStorage.setItem('bs_users',JSON.stringify(users));localStorage.setItem('bs_current',e);msg.innerText="Done!";setTimeout(()=>{closeModal();checkLogin()},400);
- }else{
-  if(users[e]===p){localStorage.setItem('bs_current',e);closeModal();checkLogin()}else{msg.innerText="गलत Email/Password"}
- }
+let mode='register';
+function toggleT(){document.body.classList.toggle('dark');localStorage.setItem('th',document.body.classList.contains('dark')?'d':'l')}
+if(localStorage.getItem('th')=='d')document.body.classList.add('dark')
+function openA(m){mode=m;document.getElementById('mTitle').innerText=m=='login'?'Login':'Register';document.getElementById('aModal').classList.add('show')}
+function closeA(){document.getElementById('aModal').classList.remove('show')}
+function doAuth(){
+ const e=document.getElementById('aEmail').value.trim(), p=document.getElementById('aPass').value.trim(), msg=document.getElementById('aMsg');
+ if(!e||!p){msg.innerText='भरो पूरा';return}
+ let u=JSON.parse(localStorage.getItem('bs_u')||'{}');
+ if(mode=='register'){if(u[e]){msg.innerText='पहले से है, Login करो';return} u[e]=p;localStorage.setItem('bs_u',JSON.stringify(u));localStorage.setItem('bs_c',e);msg.style.color='green';msg.innerText='हो गया!';setTimeout(()=>{closeA();check()},500)}
+ else{if(u[e]==p){localStorage.setItem('bs_c',e);closeA();check()}else{msg.innerText='गलत Password'}}
 }
-function checkLogin(){const cur=localStorage.getItem('bs_current');if(cur){document.getElementById('userInfo').innerText="👤 "+cur;document.getElementById('loginBtn').style.display='none';document.getElementById('regBtn').style.display='none';document.getElementById('logoutBtn').style.display='inline-block'}}
-function logout(){localStorage.removeItem('bs_current');location.reload()}
-checkLogin();
+function check(){const c=localStorage.getItem('bs_c');if(c){document.getElementById('uName').innerText='👤 '+c;document.getElementById('lBtn').style.display='none';document.getElementById('rBtn').style.display='none';document.getElementById('loBtn').style.display='block'}}
+function logout(){localStorage.removeItem('bs_c');location.reload()}
+check();
 
-const offlineTools=[
- {name:"Calculator",key:"calculator calc",desc:"तेज कैलकुलेशन"},
- {name:"QR Generator",key:"qr code",desc:"QR बनाओ"},
- {name:"Password Generator",key:"password",desc:"Strong password"},
- {name:"All Blog Tools",key:"all tools blog technotools",desc:"तुम्हारे Blog के सारे Tools",link:"https://technotoolshubfreetools.blogspot.com/p/all-tools.html"}
-];
-const results=document.getElementById('results');
-document.getElementById('searchInput').addEventListener('input', async (e)=>{
- let q=e.target.value.trim(); if(q.length<2){results.innerHTML='<div class="card">कुछ लिखो...</div>';return}
- let html="";
- let off=offlineTools.filter(t=> t.key.includes(q.toLowerCase()) || t.name.toLowerCase().includes(q.toLowerCase()));
- if(off.length>0){
-  html+=off.map(t=>`<div class="card"><b>${t.name}</b> - ${t.desc} ${t.link?`<a href="${t.link}" target="_blank">Open</a>`:''}</div>`).join("");
- }
- try{
-  const r=await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(q)}`);
-  if(r.ok){const d=await r.json(); if(d.extract){html+=`<div class="card"><b>📚 Wikipedia:</b> ${d.extract}<br><a href="${d.content_urls.desktop.page}" target="_blank">पूरा पढ़ो</a></div>`}}
- }catch{}
- html+=`<div class="card"><b>🌐 Free Online:</b><br><br>
- <a href="https://technotoolshubfreetools.blogspot.com/p/all-tools.html" target="_blank">🛠️ मेरे All Tools (तेरा Blog)</a> |
- <a href="https://duckduckgo.com/?q=${encodeURIComponent(q)}" target="_blank">🦆 DuckDuckGo</a> |
- <a href="https://www.google.com/search?q=${encodeURIComponent(q)}" target="_blank">🔍 Google</a> |
- <a href="https://www.youtube.com/results?search_query=${encodeURIComponent(q)}" target="_blank">▶️ YouTube</a>
- </div>`;
- results.innerHTML=html;
+const tools=[{n:"Calculator",k:"calculator"},{n:"QR",k:"qr"},{n:"Password",k:"password"},{n:"Your All Tools",k:"all tools",link:"https://technotoolshubfreetools.blogspot.com/p/all-tools.html"}];
+document.getElementById('sInput').addEventListener('input',async e=>{
+ let q=e.target.value.trim().toLowerCase(), r=document.getElementById('results');
+ if(q.length<2){r.innerHTML='<div class="card">लिखना शुरू करो...</div>';return}
+ let h=tools.filter(t=>t.k.includes(q)).map(t=>`<div class="card">🔧 <b>${t.n}</b> ${t.link?`<a href="${t.link}" target="_blank">→ Open</a>`:''}</div>`).join('');
+ try{let res=await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(q)}`);if(res.ok){let d=await res.json();if(d.extract)h+=`<div class="card">📚 <b>${d.title}</b><br>${d.extract}<br><a href="${d.content_urls.desktop.page}" target="_blank">पढ़ो</a></div>`}}catch{}
+ h+=`<div class="card">🌐 <a href="https://duckduckgo.com/?q=${encodeURIComponent(q)}" target="_blank">DuckDuckGo</a> | <a href="https://google.com/search?q=${encodeURIComponent(q)}" target="_blank">Google</a> | <a href="https://technotoolshubfreetools.blogspot.com/p/all-tools.html" target="_blank">My Tools Hub</a></div>`;
+ r.innerHTML=h;
 });
 </script>
 </body>
-  </html>
+</html>
