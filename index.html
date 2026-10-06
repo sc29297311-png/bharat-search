@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bharat Search - भारत का अपना सर्च इंजन</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="logo">Bharat<span>Search</span></div>
+  <div class="auth">
+    <button id="loginBtn">Login</button>
+    <button id="signupBtn">Sign Up</button>
+    <span id="userName" style="display:none"></span>
+    <button id="logoutBtn" style="display:none">Logout</button>
+  </div>
+</header>
+
+<main>
+  <div class="search-box-main">
+    <h1>Bharat Search</h1>
+    <p>तेज़, सुरक्षित, बिना कॉपीराइट - भारत का सर्च</p>
+    <input type="text" id="mainSearch" placeholder="कुछ भी सर्च करो...">
+    <div class="search-buttons">
+      <button onclick="doSearch()">🔍 Bharat Search</button>
+      <button onclick="doAI()">🤖 AI जवाब</button>
+    </div>
+    <div id="results"></div>
+  </div>
+
+  <section class="tools">
+    <h2>🚀 हमारे 12 Free Tools</h2>
+    <div class="tool-grid">
+      <div class="tool" onclick="toolCalc()">🧮 Calculator</div>
+      <div class="tool" onclick="toolAge()">🎂 Age Calculator</div>
+      <div class="tool" onclick="toolWord()">📝 Word Counter</div>
+      <div class="tool" onclick="toolQR()">🔳 QR Maker</div>
+      <div class="tool" onclick="toolPass()">🔑 Password Gen</div>
+      <div class="tool" onclick="toolBMI()">💪 BMI Check</div>
+      <div class="tool" onclick="toolColor()">🎨 Color Picker</div>
+      <div class="tool" onclick="toolText()">🔤 Text Case</div>
+      <div class="tool" onclick="toolLoan()">💰 Loan EMI</div>
+      <div class="tool" onclick="toolTemp()">🌡️ Temp Converter</div>
+      <div class="tool" onclick="toolNote()">📒 Notepad</div>
+      <div class="tool" onclick="toolTimer()">⏱️ Timer</div>
+    </div>
+    <div id="toolOutput"></div>
+  </section>
+</main>
+
+<footer>
+  <h3>Privacy Policy</h3>
+  <p>हम आपका कोई Data Server पर Save नहीं करते। सब कुछ आपके Browser (localStorage) में Safe रहता है। कोई Tracking नहीं, कोई Ads नहीं। यह प्रोजेक्ट 100% Open Source और No Copyright है।</p>
+  <p>Contact: sc29297311@gmail.com</p>
+  <p>© 2026 Bharat Search - Made in India 🇮🇳</p>
+</footer>
+
+<!-- Auth Modal -->
+<div id="authModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3 id="authTitle">Sign Up</h3>
+    <input id="authEmail" type="email" placeholder="Email">
+    <input id="authPass" type="password" placeholder="Password">
+    <button id="authAction">Submit</button>
+    <p><a href="#" id="forgotLink">Forgot Password? Recovery</a></p>
+    <p id="authMsg"></p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
