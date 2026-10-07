@@ -2,119 +2,122 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bharat Search V2 - Google Killer</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@800;700;400&display=swap" rel="stylesheet">
+<title>Bharat Search - Voice Space Edition</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f8f9ff;--card:#ffffff;--b:#e5e7ff;--p:#FF6A00;--g:#138808}
+:root{--bg:#020412;--card:rgba(20,24,50,0.85);--text:#e6e8ff;--b:#2a2f5a;--p:#7c4dff}
 *{margin:0;padding:0;box-sizing:border-box;font-family:Outfit,sans-serif}
-body{background:radial-gradient(800px at 10% -10%, #FF993322, transparent),radial-gradient(800px at 90% 0%, #13880822, transparent), #fcfcff; min-height:100vh}
-header{position:sticky;top:0;z-index:99;background:rgba(255,255,255,.9);backdrop-filter:blur(16px);border-bottom:2px solid var(--b);padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
-.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px}
-.tiranga-flag{width:42px;height:28px;border-radius:5px;border:1.5px solid #333;overflow:hidden;position:relative;display:grid;grid-template-rows:1fr 1fr 1fr;box-shadow:0 2px 8px #0002}
-.tiranga-flag span:nth-child(1){background:#FF9933}
-.tiranga-flag span:nth-child(2){background:#fff;display:flex;align-items:center;justify-content:center}
-.tiranga-flag span:nth-child(3){background:#138808}
-.chakra{width:16px;height:16px;border:1px solid #000080;border-radius:50%;position:relative}
-.chakra::before{content:'';position:absolute;inset:2px;border:1px dotted #000080;border-radius:50%}
-.container{max-width:800px;margin:auto;padding:14px}
-.hero{background:#fff;border:2px solid var(--b);border-radius:24px;padding:20px;box-shadow:0 10px 30px #7c4dff11;text-align:center}
-.hero h1{font-size:28px;background:linear-gradient(90deg,#FF6A00,#138808);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.sBox{display:flex;gap:8px;margin-top:14px}
-.sBox input{flex:1;padding:15px 16px;border-radius:14px;border:2px solid var(--b);font-size:16px;outline:none}
-.sBox input:focus{border-color:#7c4dff}
-.vBtn{padding:0 20px;border-radius:14px;border:none;background:linear-gradient(90deg,#FF9933,#FF6A00);color:#fff;font-weight:800;font-size:22px;cursor:pointer}
-.micBig{margin-top:14px;width:100%;padding:16px;border-radius:16px;border:none;background:linear-gradient(90deg,#000,#222);color:#fff;font-weight:800;font-size:18px;cursor:pointer;letter-spacing:.5px}
-.card{background:#fff;border:1.5px solid var(--b);border-radius:18px;padding:14px;margin-top:12px;box-shadow:0 4px 20px #00000008}
-.robotTitle{display:flex;gap:8px;align-items:center;font-weight:800;font-size:18px}
-.rBtns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
-.rBtn{padding:13px;border-radius:12px;border:none;font-weight:800;cursor:pointer}
-.rBtn.b1{background:linear-gradient(90deg,#FF9933,#ff8c00);color:#fff}
-.rBtn.b2{background:linear-gradient(90deg,#ff0040,#ff5e5e);color:#fff}
-.rBtn.b3{background:linear-gradient(90deg,#138808,#1ecb1e);color:#fff;grid-column:span 2}
-.blogOut{background:#0f1225;color:#e6e8ff;padding:14px;border-radius:12px;margin-top:10px;white-space:pre-wrap;font-size:13px;max-height:380px;overflow:auto;display:none;border:1px solid #2a2f5a}
-.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
-.tool{background:#fff;border:1.5px solid var(--b);border-radius:14px;padding:12px;text-align:center;font-weight:700;cursor:pointer}
+body{background:var(--bg);color:var(--text);min-height:100vh;position:relative;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(2px 2px at 20% 30%, #fff, transparent),radial-gradient(2px 2px at 40% 70%, #fff, transparent),radial-gradient(1px 1px at 90% 40%, #fff, transparent),radial-gradient(1px 1px at 65% 20%, #fff, transparent),radial-gradient(2px 2px at 10% 80%, #fff, transparent);background-repeat:repeat;background-size:300px 300px;opacity:.6;z-index:-2}
+body::after{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at top, rgba(124,77,255,.25), transparent 60%),radial-gradient(ellipse at bottom right, rgba(0,229,255,.15), transparent 50%);z-index:-1}
+header{backdrop-filter:blur(20px);background:rgba(10,12,30,0.8);border-bottom:1px solid var(--b);padding:12px 14px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:99}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:18px}
+.tiranga{width:36px;height:22px;background:linear-gradient(to bottom,#FF9933 33%,#fff 33%,#fff 66%,#138808 66%);border-radius:4px;border:1px solid #555;position:relative}
+.tiranga::after{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:11px;color:#000080}
+.btn{padding:8px 16px;border-radius:99px;border:none;background:linear-gradient(90deg,#7c4dff,#00e5ff);color:#000;font-weight:800;cursor:pointer;font-size:12px}
+.btn.o{background:transparent;color:var(--text);border:1px solid var(--b)}
+.container{max-width:900px;margin:auto;padding:14px}
+.hero{background:linear-gradient(135deg, rgba(124,77,255,.18), rgba(0,229,255,.12));border:1px solid var(--b);backdrop-filter:blur(16px);padding:22px;border-radius:22px;box-shadow:0 0 40px rgba(124,77,255,.15)}
+.hero input{width:100%;padding:14px 16px;border-radius:14px;border:1.5px solid var(--b);background:rgba(10,12,30,.9);color:var(--text);font-size:15px;outline:none}
+.card{background:var(--card);border:1px solid var(--b);border-radius:16px;padding:14px;margin-top:12px;backdrop-filter:blur(14px)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.tool{background:rgba(30,35,80,.8);border:1px solid var(--b);border-radius:14px;padding:14px;text-align:center;cursor:pointer}
 .tool:hover{border-color:#7c4dff;transform:translateY(-2px)}
-footer{text-align:center;padding:20px;font-size:11px;opacity:.6}
+.blogWrap{height:400px;border-radius:14px;overflow:hidden;border:1px solid var(--b);margin-top:10px}
+iframe{width:100%;height:100%;border:none;background:#fff}
+footer{margin-top:30px;background:rgba(10,12,30,0.9);border-top:1px solid var(--b);padding:18px;text-align:center;font-size:11px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;z-index:99999}
+.modal.show{display:flex!important}
+.mBox{background:#10122a;border:1px solid var(--b);padding:18px;border-radius:16px;width:92%;max-width:320px}
+.mBox input{width:100%;padding:11px;border-radius:10px;border:1px solid var(--b);background:rgba(0,0,0,.4);color:#fff;margin:6px 0}
 </style>
 </head>
 <body>
 <header>
-<div class="logo"><div class="tiranga-flag"><span></span><span><div class="chakra"></div></span><span></span></div> Bharat Search V2</div>
-<div><button onclick="location.reload()" style="padding:8px 14px;border-radius:99px;border:1.5px solid #e5e7ff;background:#fff;font-weight:800">Logout</button></div>
+<div class="logo"><div class="tiranga"></div> Bharat Search</div>
+<div style="display:flex;gap:6px;align-items:center"><span id="uName" style="font-size:11px"></span>
+<button class="btn o" id="lBtn" onclick="openA('Login')">Login</button>
+<button class="btn" id="rBtn" onclick="openA('Register')">Register</button>
+<button class="btn o" id="loBtn" style="display:none" onclick="logout()">Logout</button></div>
 </header>
+
 <div class="container">
 <div class="hero">
-<h1>🇮🇳 Google नहीं, Bharat बोलता है</h1>
-<p style="opacity:.7;margin-top:4px">Voice + Diesel Robot + Yojana Finder • 100% Free</p>
-<div class="sBox">
-<input id="sInput" placeholder="बोलो या लिखो - जैसे लाडली बहना योजना">
-<button class="vBtn" onclick="startVoice()">🎙️</button>
+<h1> Bharat Search</h1>
+<p>Space Edition  Voice Search Free  No Copyright  Legal Safe</p>
+<div style="display:flex;gap:8px;margin-top:12px">
+<input id="sInput" placeholder="   - calculator, qr...">
+<button onclick="startVoice()" style="padding:14px 18px;border-radius:14px;border:1px solid var(--b);background:linear-gradient(90deg,#7c4dff,#00e5ff);color:#000;font-weight:800;cursor:pointer"></button>
 </div>
-<button class="micBig" onclick="startVoice()">🎙️ बोलो भारत - बोल के Search करो</button>
-<p id="vStatus" style="font-size:12px;margin-top:8px;color:#7c4dff">Mic दबाओ - Robot Blog भी बनाएगा</p>
+<p id="voiceStatus" style="font-size:10px;margin-top:6px;opacity:.6">Mic    - 100% Free, No Copyright</p>
 </div>
 
 <div id="results"></div>
 
-<div id="robotCard" class="card" style="display:none;border:2px solid #FF9933">
-<div class="robotTitle">🤖 Bharat Diesel Robot <span style="font-size:11px;background:#fff0e0;padding:3px 8px;border-radius:99px">LIVE</span></div>
-<p id="rTopic" style="font-size:12px;opacity:.7;margin:6px 0">Topic Ready है</p>
-<div class="rBtns">
-<button class="rBtn b1" onclick="runRobot('blog')">🚀 Blog + Article</button>
-<button class="rBtn b2" onclick="runRobot('youtube')">📺 YouTube Pack</button>
-<button class="rBtn b3" onclick="runRobot('yojana')">🏛️ Yojana / सरकारी Form निकालो</button>
+<h3 style="margin-top:16px"> Tools</h3>
+<div class="grid">
+<div class="tool" onclick="window.open('https://technotoolshubfreetools.blogspot.com/p/all-tools.html','_blank')"><br><b>All Tools</b></div>
+<div class="tool" onclick="go('calculator')"><br>Calc</div>
+<div class="tool" onclick="go('qr')"><br>QR</div>
+<div class="tool" onclick="go('password')"><br>Pass</div>
+<div class="tool" onclick="go('age')"><br>Age</div>
+<div class="tool" onclick="go('bmi')"><br>BMI</div>
 </div>
-<div id="blogOut" class="blogOut"></div>
-<div style="display:flex;gap:6px;margin-top:8px">
-<button onclick="copyBlog()" style="flex:1;padding:10px;border-radius:10px;border:1.5px solid #e5e7ff;background:#fff;font-weight:700">📋 Copy</button>
-<button onclick="shareBlog()" style="flex:1;padding:10px;border-radius:10px;border:none;background:#111;color:#fff;font-weight:700">📤 Share करो - Viral</button>
+
+<div class="card"><h3> Live Tools Blog <span style="color:#00e5ff;font-size:10px"> FREE INTERNET CONNECTED</span></h3>
+<div class="blogWrap"><iframe src="https://technotoolshubfreetools.blogspot.com/p/all-tools.html" loading="lazy" title="Free Blog"></iframe></div>
 </div>
 </div>
 
-<h3 style="margin-top:18px">🔥 वायरल Tools</h3>
-<div class="tools">
-<div class="tool" onclick="go('calculator')">🧮<br>Calc</div>
-<div class="tool" onclick="go('qr code')">🔳<br>QR</div>
-<div class="tool" onclick="go('age')">🎂<br>Age</div>
-<div class="tool" onclick="go('bmi')">⚖️<br>BMI</div>
-</div>
+<footer>
+<div style="font-weight:800"> Bharat Search - Voice Space</div>
+<div style="margin-top:6px;opacity:.7">Free APIs: DuckDuckGo + Wikipedia (No Key, No Copyright) | Voice: Web Speech API (Browser Free) | Tiranga CSS Original</div>
+<div style="opacity:.5;margin-top:6px"> 2026 Bharat Search - Original Code - No Copy - Legal Safe - Made in Bharat</div>
+</footer>
 
-</div>
-<footer>© 2026 Bharat Search V2 - Made in Jabalpur, MP | Google Killer Edition</footer>
+<div class="modal" id="aModal"><div class="mBox">
+<h3 id="mTitle">Login</h3>
+<input id="aEmail" type="email" placeholder="Email">
+<input id="aPass" type="password" placeholder="Password">
+<p id="aMsg" style="font-size:12px;color:#ff6b6b;min-height:14px"></p>
+<button class="btn" style="width:100%" onclick="doAuth()">Continue</button>
+<button class="btn o" style="width:100%;margin-top:6px" onclick="forgot()">Forgot?</button>
+<button class="btn o" style="width:100%;margin-top:6px" onclick="closeA()">Close</button>
+</div></div>
 
 <script>
-let currentTopic='', currentBlog='';
-document.getElementById('sInput').addEventListener('input',async e=>{
- let q=e.target.value.trim(), r=document.getElementById('results'), rc=document.getElementById('robotCard');
- if(q.length<2){r.innerHTML='';rc.style.display='none';return}
- currentTopic=q;
- let h=`<div class="card">🔍 <b>${q}</b> - <a href="https://duckduckgo.com/?q=${q}" target="_blank" style="color:#7c4dff">DuckDuckGo पर देखो</a> | <a href="https://www.google.com/search?q=${q}" target="_blank">Google</a></div>`;
- try{let res=await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(q)); if(res.ok){let d=await res.json(); if(d.extract) h+=`<div class="card">📚 ${d.title}: ${d.extract.slice(0,180)}...</div>`}}catch{}
- r.innerHTML=h; rc.style.display='block'; document.getElementById('rTopic').innerText='Topic: '+q+' पर Robot तैयार है';
-});
-function go(q){document.getElementById('sInput').value=q; document.getElementById('sInput').dispatchEvent(new Event('input'))}
+let mode='Register';
+function openA(m){mode=m;document.getElementById('mTitle').innerText=m;let mm=document.getElementById('aModal');mm.style.display='flex';mm.classList.add('show')}
+function closeA(){let mm=document.getElementById('aModal');mm.style.display='none';mm.classList.remove('show')}
+function doAuth(){let e=document.getElementById('aEmail').value.trim(),p=document.getElementById('aPass').value.trim(),msg=document.getElementById('aMsg');if(!e||!p){msg.innerText=' ';return}let u=JSON.parse(localStorage.getItem('bs_v9')||'{}');if(mode=='Register'){if(u[e]){msg.innerText='  ';return} u[e]=p;localStorage.setItem('bs_v9',JSON.stringify(u));localStorage.setItem('bs_c',e);msg.style.color='#00e5ff';msg.innerText='Saved!';setTimeout(()=>{closeA();check()},600)}else{if(u[e]==p){localStorage.setItem('bs_c',e);msg.style.color='#00e5ff';msg.innerText='OK';setTimeout(()=>{closeA();check()},400)}else{msg.innerText=''}}}
+function forgot(){let e=document.getElementById('aEmail').value.trim(),u=JSON.parse(localStorage.getItem('bs_v9')||'{}'),msg=document.getElementById('aMsg');if(!e){msg.innerText='Email ';return}if(u[e]){msg.style.color='#00e5ff';msg.innerText='Pass: '+u[e]}else{msg.innerText=' '}}
+function check(){let c=localStorage.getItem('bs_c');if(c){document.getElementById('uName').innerText=' '+c;document.getElementById('lBtn').style.display='none';document.getElementById('rBtn').style.display='none';document.getElementById('loBtn').style.display='block'}}
+function logout(){localStorage.removeItem('bs_c');location.reload()}
+function go(q){document.getElementById('sInput').value=q;document.getElementById('sInput').dispatchEvent(new Event('input'))}
 function startVoice(){
- if(!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)){alert('Chrome में खोलो'); return;}
- let Recog=window.SpeechRecognition||window.webkitSpeechRecognition; let rec=new Recog(); rec.lang='hi-IN';
- rec.onstart=()=>document.getElementById('vStatus').innerText='🎙️ सुन रहा हूँ...';
- rec.onresult=(e)=>{let t=e.results[0][0].transcript; document.getElementById('sInput').value=t; document.getElementById('vStatus').innerText='✅ बोला: '+t; document.getElementById('sInput').dispatchEvent(new Event('input'));};
+ let status=document.getElementById('voiceStatus');
+ if(!('webkitSpeechRecognition' in window) &&!('SpeechRecognition' in window)){status.innerText=' Chrome  ';return;}
+ let Recog=window.SpeechRecognition||window.webkitSpeechRecognition;
+ let rec=new Recog();rec.lang='hi-IN';rec.interimResults=false;
+ rec.onstart=()=>{status.innerText='   ... ';status.style.color='#00e5ff'};
+ rec.onresult=(e)=>{
+   let text=e.results[0][0].transcript;
+   document.getElementById('sInput').value=text;
+   status.innerText='  : '+text;
+   document.getElementById('sInput').dispatchEvent(new Event('input'));
+   let utter=new SpeechSynthesisUtterance('  '+text);
+   utter.lang='hi-IN';speechSynthesis.speak(utter);
+ };
+ rec.onerror=()=>{status.innerText='  ';};
  rec.start();
 }
-async function runRobot(type){
- let q=currentTopic||document.getElementById('sInput').value||'Bharat'; let out=document.getElementById('blogOut'); out.style.display='block'; out.innerText='🤖 Robot बना रहा है...';
- let wiki=''; try{let res=await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(q)); if(res.ok){let d=await res.json(); wiki=d.extract||''}}catch{wiki='Free source से जानकारी'}
- if(type=='blog'){
-  currentBlog=`# ${q} - Complete Guide 2026 | Bharat Search V2\n\n${wiki}\n\n## ${q} क्या है?\n${q} पर ये Article Bharat Diesel Robot V2 ने Free Sources से बनाया है। SEO Ready, Copyright Free.\n\n## फायदे\n- 100% Free, No API\n- Jabalpur MP के लिए बना\n- Hindi + English\n\nMade in Bharat V2`;
- } else if(type=='youtube'){
-  currentBlog=`🎬 YOUTUBE PACK FOR: ${q}\n\nTITLE: ${q} - Full Guide 2026 | Bharat Search V2\n\nDESCRIPTION:\n${wiki}\n\nइस वीडियो में ${q} के बारे में पूरी जानकारी दी गई है।\n\nHashtags: #${q.replace(/\s/g,'')} #BharatSearch #Jabalpur #MP\nTags: ${q}, bharat search, ${q} 2026\n\nThumbnail Text: ${q.toUpperCase()} ?`;
- } else {
-  currentBlog=`🏛️ YOJANA FINDER: ${q}\n\n${wiki}\n\n👉 सरकारी लिंक:\n1. https://www.myscheme.gov.in/search?query=${encodeURIComponent(q)}\n2. https://mp.gov.in/search?q=${encodeURIComponent(q)}\n3. DuckDuckGo: https://duckduckgo.com/?q=${encodeURIComponent(q)}+yojana+form+last+date\n\nकैसे Apply करें:\n- ऊपर लिंक खोलो\n- Form भरो\n- Jabalpur CSC से Submit करो\n\nBharat Search V2 - Yojana Robot`;
- }
- out.innerText=currentBlog;
-}
-function copyBlog(){navigator.clipboard.writeText(document.getElementById('blogOut').innerText); alert('Copied Viral!')}
-function shareBlog(){if(navigator.share){navigator.share({title:currentTopic,text:document.getElementById('blogOut').innerText})}else{copyBlog()}}
+check();
+document.getElementById('sInput').addEventListener('input',async e=>{
+ let q=e.target.value.toLowerCase().trim(),r=document.getElementById('results');if(q.length<2){r.innerHTML='';return}
+ let h=`<div class="card"> <b>${q}</b> - <a href="https://duckduckgo.com/?q=${q}" target="_blank" style="color:#00e5ff">DuckDuckGo Free Search</a></div>`;
+ try{let res=await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(q));if(res.ok){let d=await res.json();if(d.extract)h+=`<div class="card"> ${d.title}: ${d.extract.slice(0,160)}...</div>`}}catch{}
+ r.innerHTML=h;
+});
 </script>
 </body>
- </html>
+</html>
