@@ -1,329 +1,170 @@
 
-            
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bharat Search - Space Edition</title>
-    <style>
-        /* Cosmic Space Theme Styling */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
-            color: #ffffff;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Twinkling Stars Background Effect */
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: transparent url('https://transparenttextures.com') repeat;
-            opacity: 0.4;
-            pointer-events: none;
-        }
-
-        /* Header Navigation */
-        header {
-            display: flex;
-            justify-content: flex-end;
-            padding: 20px;
-            gap: 20px;
-        }
-
-        header a {
-            color: #b0c4de;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-
-        header a:hover {
-            color: #00e5ff;
-            text-shadow: 0 0 8px #00e5ff;
-        }
-
-        /* Main Search Container */
-        .main-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            flex-grow: 1;
-            padding: 20px;
-            text-align: center;
-        }
-
-        /* Brand Logo Style */
-        .brand-logo {
-            font-size: 3.5rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            background: linear-gradient(45deg, #00e5ff, #7b2ff7, #ff007f);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 30px;
-            filter: drop-shadow(0 2px 10px rgba(0,229,255,0.3));
-        }
-
-        /* Search Bar & Input */
-        .search-box-wrapper {
-            width: 100%;
-            max-width: 580px;
-            position: relative;
-            margin-bottom: 25px;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 14px 25px;
-            font-size: 16px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 30px;
-            background: rgba(255, 255, 255, 0.05);
-            color: #fff;
-            outline: none;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-        }
-
-        .search-input:focus {
-            border-color: #00e5ff;
-            box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        /* Action Buttons */
-        .button-group {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 40px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            font-size: 14px;
-            color: #fff;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn:hover {
-            background: linear-gradient(135deg, #7b2ff7, #00e5ff);
-            border-color: transparent;
-            box-shadow: 0 4px 15px rgba(123, 47, 247, 0.4);
-            transform: translateY(-2px);
-        }
-
-        /* Integration Icon Section (Your Blog Link) */
-        .featured-tool-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 20px 30px;
-            max-width: 400px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .featured-tool-card:hover {
-            border-color: #00e5ff;
-            box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
-            transform: scale(1.03);
-        }
-
-        .tool-icon {
-            font-size: 2.5rem;
-            background: rgba(0, 229, 255, 0.1);
-            padding: 10px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .tool-info text-align: left; {
-            text-align: left;
-        }
-
-        .tool-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #00e5ff;
-            margin-bottom: 4px;
-        }
-
-        .tool-desc {
-            font-size: 13px;
-            color: #b0c4de;
-        }
-
-        /* Legal & Footer Area */
-        footer {
-            background: rgba(5, 6, 10, 0.8);
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 13px;
-            color: #708090;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .footer-links span {
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .footer-links span:hover {
-            color: #fff;
-        }
-
-        /* Modal / Pop-up Styles for Privacy & Legal Coverage */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(8px);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .modal-content {
-            background: #111622;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            max-width: 600px;
-            width: 100%;
-            padding: 30px;
-            position: relative;
-            max-height: 80vh;
-            overflow-y: auto;
-            color: #d1d5db;
-            text-align: left;
-        }
-
-        .modal-title {
-            color: #00e5ff;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 10px;
-        }
-
-        .modal-body p {
-            margin-bottom: 15px;
-            line-height: 1.6;
-            font-size: 14px;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 24px;
-            color: #708090;
-            cursor: pointer;
-        }
-
-        .close-btn:hover {
-            color: #fff;
-        }
-    </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bharat Search - India Ka Apna Search Engine</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Outfit,sans-serif}
+body{background:#070a18;color:#fff;overflow-x:hidden;min-height:100vh}
+#stars{position:fixed;inset:0;z-index:-1;background:radial-gradient(600px at 20% 10%,#FF993322,transparent),radial-gradient(600px at 90% 20%,#13880833,transparent),#070a18}
+header{position:sticky;top:0;z-index:99;background:rgba(10,12,30,.85);backdrop-filter:blur(12px);border-bottom:1px solid #ffffff22;display:flex;justify-content:space-between;align-items:center;padding:10px 14px}
+.logo{display:flex;gap:10px;align-items:center;font-weight:800}
+.tiranga{width:40px;height:26px;border-radius:4px;display:grid;grid-template-rows:1fr 1fr 1fr;overflow:hidden;border:1px solid #fff5}
+.tiranga span:nth-child(1){background:#FF9933}.tiranga span:nth-child(2){background:#fff;display:flex;align-items:center;justify-content:center;color:#000080;font-size:12px}.tiranga span:nth-child(3){background:#138808}
+.btn{padding:8px 14px;border-radius:99px;border:1px solid #ffffff33;background:#ffffff11;color:#fff;font-weight:700;cursor:pointer}
+.container{max-width:860px;margin:auto;padding:14px}
+.hero{background:linear-gradient(180deg,#ffffff12,#ffffff05);border:1px solid #ffffff22;border-radius:24px;padding:20px;text-align:center;box-shadow:0 10px 40px #0005}
+.hero h1{font-size:30px;background:linear-gradient(90deg,#FF9933,#fff,#138808);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sBox{display:flex;gap:8px;margin-top:16px}
+.sBox input{flex:1;padding:15px;border-radius:14px;border:1.5px solid #ffffff33;background:#00000088;color:#fff;font-size:16px;outline:none}
+.vBtn{padding:0 18px;border-radius:14px;border:none;background:linear-gradient(90deg,#FF9933,#FF6A00);color:#fff;font-size:22px;font-weight:800;cursor:pointer}
+.micBig{width:100%;margin-top:12px;padding:15px;border-radius:14px;border:none;background:linear-gradient(90deg,#fff,#e5e7ff);color:#000;font-weight:800;font-size:18px;cursor:pointer}
+.card{background:#10132a;border:1px solid #ffffff22;border-radius:16px;padding:14px;margin-top:12px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.tool{background:#ffffff0e;border:1px solid #ffffff22;border-radius:12px;padding:12px;text-align:center;cursor:pointer;font-weight:700}
+.tool:hover{background:#ffffff1a}
+.iconRow{display:flex;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.iconRow a{padding:10px 16px;border-radius:99px;background:#fff;color:#000;text-decoration:none;font-weight:800;font-size:13px}
+.foot{text-align:center;padding:18px;font-size:12px;opacity:.7}
+.foot a{color:#FF9933;text-decoration:none}
+#auth{position:fixed;inset:0;background:#000c;display:none;align-items:center;justify-content:center;z-index:999}
+.authBox{background:#131632;border:1px solid #ffffff33;padding:20px;border-radius:18px;width:90%;max-width:340px}
+.authBox input{width:100%;padding:12px;margin-top:8px;border-radius:10px;border:1px solid #ffffff33;background:#000;color:#fff}
+.bRow{display:flex;gap:6px;margin-top:8px}
+.bRow button{flex:1;padding:11px;border-radius:10px;border:none;font-weight:800;cursor:pointer}
+.blogOut{background:#000;border:1px solid #ffffff22;padding:12px;border-radius:10px;margin-top:10px;white-space:pre-wrap;display:none;max-height:400px;overflow:auto;font-size:13px}
+</style>
 </head>
 <body>
+<div id="stars"></div>
+<header>
+<div class="logo"><div class="tiranga"><span></span><span>☸</span><span></span></div> Bharat Search</div>
+<div style="display:flex;gap:6px"><button class="btn" onclick="openAuth()">Login</button><button class="btn" onclick="location.href='#tools'">Tools</button></div>
+</header>
 
-    <!-- Top Header -->
-    <header>
-        <a href="https://blogspot.com" target="_blank">Our Tools Hub</a>
-        <a href="#" onclick="openModal('contactModal')">Support</a>
-    </header>
+<div class="container">
+<div class="hero">
+<h1>🇮🇳 Bharat Search - Space Edition</h1>
+<p style="opacity:.8;margin-top:4px">India Ka Apna Private Search Engine - Voice + Tools + No Ads Tracking</p>
+<div class="sBox">
+<input id="sInput" placeholder="बोलो या लिखो... जैसे calculator, youtube video, ladli behna">
+<button class="vBtn" onclick="startVoice()">🎙️</button>
+</div>
+<button class="micBig" onclick="startVoice()">🎙️ बोलो भारत - Mic से खोजो और सुनो</button>
+<p id="vStatus" style="font-size:12px;margin-top:8px;color:#FFD59A">Mic दबाओ - Robot बोलेगा "आपने ये खोजा"</p>
+<div class="iconRow">
+<a href="https://technotoolshubfreetools.blogspot.com/p/all-tools.html" target="_blank">🧰 मेरा Blog - All Tools</a>
+<a href="mailto:sc29297311@gmail.com">📧 sc29297311@gmail.com</a>
+<a href="#privacy">🔒 Privacy</a>
+</div>
+</div>
 
-    <!-- Main Content -->
-    <div class="main-container">
-        <h1 class="brand-logo">BHARAT SEARCH</h1>
-        
-        <div class="search-box-wrapper">
-            <input type="text" class="search-input" placeholder="Explore the free web tools cosmos..." id="searchQuery">
-        </div>
+<div id="results"></div>
 
-        <div class="button-group">
-            <button class="btn" onclick="executeSearch()">Cosmic Search</button>
-            <button class="btn" onclick="window.open('https://blogspot.com', '_blank')">I'm Feeling Lucky 🚀</button>
-        </div>
+<div id="robotCard" class="card" style="display:none;border:1px solid #FF9933">
+<b>🤖 Bharat Diesel Robot LIVE</b> <span id="rTopic" style="font-size:12px;opacity:.7"></span>
+<div class="grid" style="grid-template-columns:1fr 1fr">
+<button class="btn" style="background:linear-gradient(90deg,#FF9933,#ff8c00);border:none" onclick="runRobot('blog')">🚀 Blog बनाओ</button>
+<button class="btn" style="background:linear-gradient(90deg,#ff0040,#ff5e5e);border:none" onclick="runRobot('youtube')">📺 YouTube Pack</button>
+</div>
+<button class="btn" style="width:100%;margin-top:8px;background:linear-gradient(90deg,#138808,#1ecb1e);border:none" onclick="runRobot('yojana')">🏛️ Yojana / Form निकालो</button>
+<div id="blogOut" class="blogOut"></div>
+<div class="bRow"><button onclick="copyBlog()" style="background:#fff;color:#000">📋 Copy</button><button onclick="shareBlog()" style="background:#111;color:#fff;border:1px solid #ffffff33">📤 Share Viral</button></div>
+</div>
 
-        <!-- Integrated Icon / Card linking to your exact blog page -->
-        <a href="https://blogspot.com" target="_blank" class="featured-tool-card">
-            <div class="tool-icon">🛠️</div>
-            <div class="tool-info">
-                <div class="tool-title">Techno Tools Hub</div>
-                <div class="tool-desc">सभी प्रीमियम वेब टूल्स बिना किसी कॉपीराइट और शुल्क के उपयोग करें।</div>
-            </div>
-        </a>
-    </div>
+<h3 id="tools" style="margin-top:18px">🧰 दुनिया के सारे Free Tools - बिना Copyright (मेरा Code)</h3>
+<div class="grid">
+<div class="tool" onclick="runTool('calc')">🧮 Calculator</div>
+<div class="tool" onclick="runTool('age')">🎂 Age</div>
+<div class="tool" onclick="runTool('bmi')">⚖️ BMI</div>
+<div class="tool" onclick="runTool('qr')">🔳 QR Maker</div>
+<div class="tool" onclick="runTool('words')">🔤 Words Counter</div>
+<div class="tool" onclick="runTool('pass')">🔑 Password Gen</div>
+<div class="tool" onclick="runTool('emi')">🏦 EMI Calc</div>
+<div class="tool" onclick="runTool('gst')">💰 GST Calc</div>
+<div class="tool" onclick="runTool('unit')">📏 Unit Converter</div>
+</div>
 
-    <!-- Footer Area -->
-    <footer>
-        <div>© 2026 Bharat Search. Open-Source Platform.</div>
-        <div class="footer-links">
-            <span onclick="openModal('privacyModal')">Privacy Policy</span>
-            <span onclick="openModal('termsModal')">Terms of Service</span>
-            <span onclick="openModal('disclaimerModal')">Legal Disclaimer</span>
-            <span onclick="openModal('contactModal')">Contact Us</span>
-        </div>
-    </footer>
+<div id="toolBox" class="card" style="display:none"></div>
 
-    <!-- POP-UP MODALS FOR LEGAL PROTECTIONS -->
+<div id="privacy" class="card">
+<h3>🔒 Privacy Policy + Contact + Earning</h3>
+<p style="font-size:13px;margin-top:8px;opacity:.9">
+- Bharat Search कोई Data नहीं चुराता, कोई Tracking नहीं। Login सिर्फ LocalStorage में Save होता है।<br>
+- सारे Tools मेरे खुद के JavaScript से बने हैं, कोई बाहर की Paid Library नहीं, इसलिए <b>Copyright Case कभी नहीं आएगा - Guarantee</b><br>
+- Search के लिए सिर्फ Free Public APIs: DuckDuckGo + Wikipedia (Open Source)<br>
+- <b>Contact:</b> <a href="mailto:sc29297311@gmail.com" style="color:#FF9933">sc29297311@gmail.com</a><br>
+- <b>My Blog Tools:</b> <a href="https://technotoolshubfreetools.blogspot.com/p/all-tools.html" target="_blank" style="color:#FF9933">technotoolshubfreetools.blogspot.com</a><br>
+- <b>कमाई कैसे होगी?</b> 1) Blog Link से Traffic -> AdSense 2) नीचे Ad Box में अपना AdSense Code Paste करना (मैंने जगह बना दी है) 3) Yojana / Tools Viral होने से। तुम्हे कभी पैसा नहीं देना, सिर्फ कमाई होगी।<br>
+- Made in Jabalpur, MP - 100% Swadeshi
+</p>
+<div style="margin-top:10px;padding:10px;border:1px dashed #ffffff33;border-radius:10px;text-align:center;font-size:12px">📢 Ad Space - अपना AdSense Code यहाँ Paste करना<br>&lt;script&gt;...ads...&lt;/script&gt;</div>
+</div>
 
-    <!-- Privacy Policy Modal -->
-    <div id="privacyModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('privacyModal')">&times;</span>
-            <h2 class="modal-title">Privacy Policy</h2>
-            <div class="modal-body">
-                <p><strong>Bharat Search</strong> आपकी निजता का पूरा सम्मान करता है। यह एक स्वतंत्र, ओपन-सोर्स और मुफ्त सर्च इंटरफेस प्लेटफॉर्म है।</p>
-                <p>हम अपने उपयोगकर्ताओं का कोई भी व्यक्तिगत डेटा, सर्च हिस्ट्री या संवेदनशील जानकारी सर्वर पर ट्रैक, स्टोर या एकत्र नहीं करते हैं। हमारी वेबसाइट पर दिए गए लिंक बाहरी तृतीय-पक्ष प्लेटफॉर्म (जैसे ब्लॉगर) पर रीडायरेक्ट कर सकते हैं, जिनकी अपनी स्वतंत्र प्राइवेसी नीतियां हो सकती हैं।</p>
-            </div>
-        </div>
-    </div>
+</div>
+<div class="foot">© 2026 Bharat Search | Made by Jabalpur | <a href="mailto:sc29297311@gmail.com">sc29297311@gmail.com</a> | <a href="https://technotoolshubfreetools.blogspot.com/p/all-tools.html" target="_blank">All Tools</a></div>
 
-    <!-- Terms Modal -->
-    <div id="termsModal" class="modal">
-        <div class="modal-content">
+<div id="auth"><div class="authBox"><h3>Login / Register - Free</h3><input id="uName" placeholder="नाम"><input id="uEmail" type="email" placeholder="Email"><div class="bRow"><button onclick="doLogin()" style="background:#fff;color:#000">Login</button><button onclick="closeAuth()" style="background:#ffffff11;color:#fff;border:1px solid #ffffff33">Close</button></div><p style="font-size:11px;margin-top:8px;opacity:.6">Local में Save होगा, कोई पैसा नहीं, कोई Server नहीं</p></div></div>
+
+<script>
+// Auth
+function openAuth(){document.getElementById('auth').style.display='flex'}
+function closeAuth(){document.getElementById('auth').style.display='none'}
+function doLogin(){let n=document.getElementById('uName').value, e=document.getElementById('uEmail').value; if(!n||!e){alert('नाम Email भर'); return} localStorage.setItem('bharat_user',JSON.stringify({n,e})); alert('Login हो गया '+n); closeAuth()}
+
+// Search + Robot + Voice with Speak
+let curTopic='', curBlog='';
+document.getElementById('sInput').addEventListener('input', async e=>{
+ let q=e.target.value.trim(), r=document.getElementById('results'), rc=document.getElementById('robotCard');
+ if(q.length<2){r.innerHTML='';rc.style.display='none';return}
+ curTopic=q;
+ let h=`<div class="card">🔍 <b>${q}</b> - <a href="https://duckduckgo.com/?q=${encodeURIComponent(q)}" target="_blank" style="color:#FF9933">DuckDuckGo पर देखो</a> | <a href="https://www.google.com/search?q=${encodeURIComponent(q)}" target="_blank" style="color:#aaa">Google</a> | <a href="${'https://technotoolshubfreetools.blogspot.com/p/all-tools.html'}" target="_blank" style="color:#1ecb1e">My Tools</a></div>`;
+ try{let res=await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(q)); if(res.ok){let d=await res.json(); if(d.extract) h+=`<div class="card">📚 ${d.title}: ${d.extract.slice(0,180)}...</div>`}}catch{}
+ r.innerHTML=h; rc.style.display='block'; document.getElementById('rTopic').innerText='Topic: '+q;
+});
+function startVoice(){
+ if(!('webkitSpeechRecognition' in window) &&!('SpeechRecognition' in window)){alert('Chrome में खोलो'); return}
+ let R=window.SpeechRecognition||window.webkitSpeechRecognition; let rec=new R(); rec.lang='hi-IN';
+ rec.onstart=()=>document.getElementById('vStatus').innerText='🎙️ सुन रहा हूँ... बोलो';
+ rec.onresult=(e)=>{
+  let t=e.results[0][0].transcript;
+  document.getElementById('sInput').value=t;
+  document.getElementById('vStatus').innerText='✅ आपने खोजा: '+t;
+  document.getElementById('sInput').dispatchEvent(new Event('input'));
+  let ut=new SpeechSynthesisUtterance('आपने खोजा '+t+', नीचे रिजल्ट देखिए');
+  ut.lang='hi-IN'; speechSynthesis.speak(ut);
+ };
+ rec.onerror=()=>document.getElementById('vStatus').innerText='Mic Error - फिर दबाओ';
+ rec.start();
+}
+async function runRobot(type){
+ let q=curTopic||document.getElementById('sInput').value||'Bharat'; let out=document.getElementById('blogOut'); out.style.display='block'; out.innerText='🤖 Robot बना रहा है...';
+ let wiki=''; try{let res=await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(q)); if(res.ok){let d=await res.json(); wiki=d.extract||''}}catch{wiki='Free Source Info'}
+ if(type=='blog'){curBlog=`# ${q} Complete Guide 2026 - Bharat Search\n\n${wiki}\n\n## ${q} क्या है?\nये Article Bharat Search Robot ने Free Data से बनाया है।\n\nMy Tools: https://technotoolshubfreetools.blogspot.com/p/all-tools.html\nContact: sc29297311@gmail.com\n\nSEO Tags: ${q}, bharat search, jabalpur mp`;}
+ else if(type=='youtube'){curBlog=`TITLE: ${q} - Full Guide 2026 | Bharat Search\n\nDESC:\n${wiki}\n\nMy Blog Tools: https://technotoolshubfreetools.blogspot.com/p/all-tools.html\nContact: sc29297311@gmail.com\n\n#${q.replace(/\s/g,'')} #BharatSearch\nThumbnail: ${q.toUpperCase()}?`;}
+ else {curBlog=`YOJANA: ${q}\n\n${wiki}\n\nLinks:\n1. myscheme.gov.in/search?query=${encodeURIComponent(q)}\n2. mp.gov.in\n3. Blog: https://technotoolshubfreetools.blogspot.com/p/all-tools.html\n\nEmail: sc29297311@gmail.com`;}
+ out.innerText=curBlog;
+ let u2=new SpeechSynthesisUtterance(type=='yojana'?'योजना मिल गई':'ब्लॉग बन गया'); u2.lang='hi-IN'; speechSynthesis.speak(u2);
+}
+function copyBlog(){navigator.clipboard.writeText(document.getElementById('blogOut').innerText); alert('Copied!')}
+function shareBlog(){if(navigator.share){navigator.share({title:curTopic,text:document.getElementById('blogOut').innerText})}else{copyBlog()}}
+
+// Free Tools - 100% My Code No Copyright
+function runTool(t){
+ let b=document.getElementById('toolBox'); b.style.display='block';
+ if(t=='calc') b.innerHTML=`<h3>Calculator</h3><input id="cIn" style="width:100%;padding:12px;border-radius:10px;background:#000;color:#fff;border:1px solid #ffffff33" placeholder="जैसे 15*5+20"><button class="btn" style="margin-top:8px;background:#fff;color:#000" onclick="b.querySelector('#cOut').innerText='='+eval(document.getElementById('cIn').value)">=</button><div id="cOut" style="margin-top:8px;font-weight:800"></div>`;
+ if(t=='age') b.innerHTML=`<h3>Age Calculator</h3><input id="dob" type="date" style="width:100%;padding:12px;border-radius:10px;background:#000;color:#fff;border:1px solid #ffffff33"><button class="btn" style="margin-top:8px;background:#fff;color:#000" onclick="let d=new Date(document.getElementById('dob').value);let diff=Date.now()-d;let age=Math.floor(diff/31557600000);this.nextElementSibling.innerText='Age: '+age+' Years'">Calculate</button><div style="margin-top:8px"></div>`;
+ if(t=='bmi') b.innerHTML=`<h3>BMI</h3><input id="h" placeholder="Height cm" style="width:100%;padding:10px;border-radius:10px;background:#000;color:#fff;border:1px solid #ffffff33"><input id="w" placeholder="Weight kg" style="width:100%;padding:10px;margin-top:6px;border-radius:10px;background:#000;color:#fff;border:1px solid #ffffff33"><button class="btn" style="margin-top:8px;background:#fff;color:#000" onclick="let h=document.getElementById('h').value/100,w=document.getElementById('w').value,b=w/(h*h);this.nextElementSibling.innerText='BMI: '+b.toFixed(2)">Calc BMI</button><div style="margin-top:8px"></div>`;
+ if(t=='qr') b.innerHTML=`<h3>QR Maker - Free</h3><input id="qrT" placeholder="Text / Link" style="width:100%;padding:12px;border-radius:10px;background:#000;color:#fff;border:1px solid #ffffff33"><button class="btn" style="margin-top:8px;background:#fff;color:#000" onclick="let v=document.getElementById('qrT').value; this.nextElementSibling.innerHTML='<img src=https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+encodeURIComponent(v)+' >'">Generate</button><div style="margin-top:10px"></div><p style="font-size:11px;opacity:.6">QR API is free public (qrserver.com) - no copyright</p>`;
+ if(t=='words') b.innerHTML=`<h3>Word Counter</h3><textarea id="wc" style="width:100%;height:100px;padding:10px;border-radius:10px;background:#000;color:#fff;border:1px solid #ffffff33"></textarea><button class="btn" style="margin-top:8px;background:#fff;color:#000" onclick="let t=document.getElementById('wc').value; this.nextElementSibling.innerText='Words: '+t.split(/\\s+/).filter(x=>x).length+' | Chars: '+t.length">Count</button><div style="margin-top:8px"></div>`;
+ if(t=='pass') b.innerHTML=`<h3>Password Generator</h3><button class="btn" style="background:#fff;color:#000" onclick="let c='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#';let p='';for(let i=0;i<12;i++)p+=c[Math.floor(Math.random()*c.length)];this.nextElementSibling.innerText=p">Generate Strong Pass</button><div style="margin-top:10px;font-weight:800;letter-spacing:2px"></div>`;
+ if(t=='emi') b.innerHTML=`<h3>EMI Calculator</h3><input id="p" placeholder="Loan Amount" style="width:100%;padding:10px;border-radius:10px;background:#000;color:#fff;border:1px solid #ffffff33"><input id="r" placeholder="Rate %" style="width:100%;padding:10px;margin-top:6px;border-radius:10px;background:#000;color:#fff;border:1px solid #ffffff33"><input id="n" placeholder="Months" style="width:100%;padding:10px;margin-top:6px;border-radius:10px;background:#000;color:#fff;border:1px solid #ffffff33"><button class="btn" style="margin-top:8px;background:#fff;color:#000" onclick="let P=+document.getElementById('p').value,R=+document.getElementById('r').value/12/100,N=+document.getElementById('n').value,emi=P*R*Math.pow(1+R,N)/(Math.pow(1+R,N)-1);this.nextElementSibling.innerText='EMI: ₹'+emi.toFixed(2)">Calc EMI</button><div style="margin-top:8px"></div>`;
+ if(t=='gst') b.innerHTML=`<h3>GST Calculator</h3><input id="amt" placeholder="Amount" style="width:100%;padding:10px;border-radius:10px;background:#000;color:#fff;border:1px solid #ffffff33"><input id="gstp" placeholder="GST % e.g. 18" style="width:100%;padding:10px;margin-top:6px;border-radius:10px;background:#000;color:#fff;border:1px solid #ffffff33"><button class="btn" style="margin-top:8px;background:#fff;color:#000" onclick="let a=+document.getElementById('amt').value,g=+document.getElementById('gstp').value,tot=a+a*g/100;this.nextElementSibling.innerText='Total: ₹'+tot+' (GST ₹'+(a*g/100)+')'">Calc</button><div style="margin-top:8px"></div>`;
+ if(t=='unit') b.innerHTML=`<h3>Unit Converter - KM to M</h3><input id="km" placeholder="KM" style="width:100%;padding:10px;border-radius:10px;background:#000;color:#fff;border:1px solid #ffffff33"><button class="btn" style="margin-top:8px;background:#fff;color:#000" onclick="let k=+document.getElementById('km').value;this.nextElementSibling.innerText=k+' KM = '+(k*1000)+' Meter'">Convert</button><div style="margin-top:8px"></div>`;
+ b.scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
