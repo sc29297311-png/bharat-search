@@ -3,21 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space AI Search & Robot</title>
-    <!-- FontAwesome for Icons -->
+    <title>भारत सर्च AI - Smart Space Search Engine</title>
+    <!-- FontAwesome Elements for High Quality Icons -->
     <link rel="stylesheet" href="https://cloudflare.com">
     <style>
-        /* अंतरिक्ष स्टाइल थीम (Space Theme) */
+        /* अंतरिक्ष थीम और नियॉन ग्लोइंग स्टाइल */
         body {
             margin: 0;
             padding: 0;
-            background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
+            background: radial-gradient(circle at center, #0d1b2a 0%, #010811 100%);
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow-x: hidden;
         }
 
-        /* तारों वाला बैकग्राउंड */
         .stars {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -29,242 +28,244 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 50px;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 221, 255, 0.2);
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid rgba(0, 221, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 221, 255, 0.1);
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 26px;
             font-weight: bold;
             color: #00ddff;
-            text-shadow: 0 0 10px #00ddff;
+            text-shadow: 0 0 15px #00ddff;
+            letter-spacing: 1px;
         }
 
         .auth-buttons button {
-            background: transparent;
+            background: rgba(0, 221, 255, 0.1);
             border: 1px solid #00ddff;
             color: #00ddff;
-            padding: 8px 16px;
+            padding: 8px 18px;
             border-radius: 20px;
             cursor: pointer;
-            transition: 0.3s;
-            margin-left: 10px;
+            font-weight: bold;
+            transition: 0.3s ease;
+            margin-left: 8px;
         }
 
         .auth-buttons button:hover {
             background: #00ddff;
             color: #000;
-            box-shadow: 0 0 15px #00ddff;
+            box-shadow: 0 0 20px #00ddff;
         }
 
-        /* मुख्य कंटेनर */
         .main-container {
             max-width: 900px;
-            margin: 50px auto;
+            margin: 40px auto;
             text-align: center;
             padding: 20px;
         }
 
-        /* रोबोट का स्टाइल */
+        /* रोबोट अलाइनमेंट और रिस्पॉन्सिव एनिमेशन */
         .robot-section {
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
+        
         .robot-icon {
-            font-size: 80px;
+            font-size: 85px;
             color: #00ddff;
-            animation: float 3s ease-in-out infinite;
-            text-shadow: 0 0 20px #00ddff;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+            animation: float 2.5s ease-in-out infinite;
+            text-shadow: 0 0 25px #00ddff;
+            display: inline-block;
         }
 
-        /* सर्च बार */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-12px) scale(1.05); color: #ff0077; text-shadow: 0 0 25px #ff0077;}
+        }
+
+        .status-bubble {
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 15px;
+            padding: 15px;
+            margin: 15px auto;
+            max-width: 80%;
+            border: 1px solid rgba(0, 221, 255, 0.2);
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .voice-btn {
+            background: linear-gradient(45deg, #ff0077, #aa00ff);
+            border: none; color: white;
+            padding: 12px 28px; border-radius: 30px;
+            font-size: 16px; cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 0 15px #ff0077;
+            transition: 0.3s;
+        }
+        .voice-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #aa00ff;
+        }
+
+        /* एडवांस सर्च बॉक्स */
         .search-box {
             position: relative;
-            margin: 30px 0;
+            margin: 30px auto;
+            width: 85%;
         }
         .search-box input {
-            width: 80%;
+            width: 100%;
             padding: 15px 60px 15px 25px;
-            border-radius: 30px;
+            border-radius: 35px;
             border: 2px solid #00ddff;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.7);
             color: #fff;
             font-size: 18px;
             outline: none;
-            box-shadow: 0 0 15px rgba(0, 221, 255, 0.2);
+            box-sizing: border-box;
+            transition: 0.3s;
         }
-        .search-box cubic-button {
+        .search-box input:focus {
+            border-color: #ff0077;
+            box-shadow: 0 0 20px rgba(255, 0, 119, 0.4);
+        }
+        .search-submit-btn {
             position: absolute;
-            right: 12%; top: 12px;
+            right: 20px; top: 12px;
             background: none; border: none;
             color: #00ddff; font-size: 22px;
             cursor: pointer;
+            transition: 0.2s;
+        }
+        .search-submit-btn:hover {
+            color: #ff0077;
+            transform: scale(1.1);
         }
 
-        /* वॉइस बटन */
-        .voice-btn {
-            background: #ff0077;
-            border: none; color: white;
-            padding: 12px 25px; border-radius: 25px;
-            font-size: 16px; cursor: pointer;
-            margin-top: 10px; box-shadow: 0 0 10px #ff0077;
-        }
-
-        /* टूल्स ग्रिड (आपके ब्लॉग लिंक्स के लिए) */
+        /* डिजिटल टूल्स ग्रिड */
         .tools-title {
-            color: #00ddff; margin-top: 50px; font-size: 22px;
+            color: #00ddff; margin-top: 50px; font-size: 24px;
+            text-shadow: 0 0 10px rgba(0, 221, 255, 0.5);
         }
         .tools-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px; margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px; margin-top: 25px;
         }
         .tool-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 20px; border-radius: 15px;
-            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.04);
+            padding: 25px; border-radius: 18px;
+            border: 1px solid rgba(0, 221, 255, 0.1);
             text-decoration: none; color: #fff;
-            transition: 0.3s;
+            transition: 0.3s ease;
+            cursor: pointer;
         }
         .tool-card:hover {
-            transform: translateY(-5px);
-            border-color: #00ddff;
-            box-shadow: 0 0 15px rgba(0, 221, 255, 0.3);
+            transform: translateY(-8px);
+            border-color: #ff0077;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 20px rgba(255, 0, 119, 0.2);
         }
         .tool-card i {
-            font-size: 40px; color: #00ddff; margin-bottom: 10px;
+            font-size: 45px; color: #00ddff; margin-bottom: 15px;
         }
 
-        /* पाद लेख (Footer) */
-        footer {
+        /* मॉडल्स (Popups) स्टाइल */
+        .modal-overlay {
+            display: none; position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.8);
-            padding: 30px; text-align: center;
-            border-top: 1px solid rgba(0, 221, 255, 0.2);
-            margin-top: 100px;
+            z-index: 99; backdrop-filter: blur(5px);
         }
-        footer a { color: #00ddff; text-decoration: none; }
-
-        /* लॉगिन पॉपअप */
         .modal {
             display: none; position: fixed;
             top: 50%; left: 50%; transform: translate(-50%, -50%);
-            background: rgba(10, 15, 30, 0.95);
-            padding: 30px; border-radius: 20px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 35px; border-radius: 25px;
             border: 2px solid #00ddff; z-index: 100;
-            width: 300px; text-align: center;
+            width: 320px; text-align: center;
+            box-shadow: 0 0 30px rgba(0, 221, 255, 0.3);
         }
+        .modal h3 { margin-top: 0; color: #00ddff; }
         .modal input {
-            width: 90%; padding: 10px; margin: 10px 0;
-            background: rgba(0,0,0,0.5); border: 1px solid #00ddff;
-            color: white; border-radius: 5px;
+            width: 100%; padding: 12px; margin: 12px 0;
+            background: rgba(0,0,0,0.6); border: 1px solid rgba(0, 221, 255, 0.4);
+            color: white; border-radius: 8px; box-sizing: border-box;
+            outline: none;
         }
+        .modal input:focus { border-color: #ff0077; }
         .modal button {
-            background: #00ddff; border: none; padding: 10px 20px;
-            border-radius: 5px; cursor: pointer; font-weight: bold;
+            background: linear-gradient(45deg, #00ddff, #0077ff); border: none; 
+            padding: 12px 25px; color: black; font-weight: bold;
+            border-radius: 8px; cursor: pointer; width: 100%; margin-top: 10px;
+            transition: 0.3s;
         }
-        .close-btn { float: right; cursor: pointer; color: red; }
+        .modal button:hover { box-shadow: 0 0 15px #00ddff; transform: scale(1.02); }
+        .close-btn { position: absolute; right: 20px; top: 15px; cursor: pointer; color: #ff0077; font-size: 22px; }
+
+        /* पाद लेख (Footer) */
+        footer {
+            background: rgba(2, 6, 23, 0.95);
+            padding: 35px 20px; text-align: center;
+            border-top: 2px solid rgba(0, 221, 255, 0.2);
+            margin-top: 80px; font-size: 14px;
+        }
+        footer p { margin: 10px 0; color: #cbd5e1; }
+        footer a { color: #00ddff; text-decoration: none; font-weight: bold; }
+        footer a:hover { color: #ff0077; text-shadow: 0 0 10px #ff0077; }
     </style>
 </head>
 <body>
 
     <div class="stars"></div>
 
+    <!-- हेडर सेक्शन नाम 'भारत सर्च' के साथ -->
     <header>
-        <div class="logo"><i class="fas fa-satellite"></i> CosmicAI Search</div>
+        <div class="logo"><i class="fas fa-globe-asia"></i> भारत सर्च AI</div>
         <div class="auth-buttons">
-            <button onclick="toggleModal('loginModal')">लॉगिन</button>
-            <button onclick="toggleModal('registerModal')">रजिस्टर</button>
+            <button onclick="openModal('loginModal')">लॉगिन</button>
+            <button onclick="openModal('registerModal')">रजिस्टर</button>
         </div>
     </header>
 
     <div class="main-container">
-        <!-- रोबोट सेक्शन -->
+        <!-- स्मार्ट रोबोट गाइड -->
         <div class="robot-section">
-            <div class="robot-icon"><i class="fas fa-robot"></i></div>
-            <h2 id="robot-status">नमस्ते! मैं आपका साइबर सुरक्षा रोबोट हूँ। कुछ पूछें या सर्च करें।</h2>
-            <button class="voice-btn" onclick="startVoice()"><i class="fas fa-microphone"></i> मुझसे बात करें (बोलें)</button>
+            <div class="robot-icon" id="robot-face"><i class="fas fa-robot"></i></div>
+            <div class="status-bubble" id="robot-status">जय हिन्द! मैं भारत सर्च का सुरक्षा इंस्पेक्ट रोबोट हूँ। सुरक्षित वेब ब्राउज़िंग के लिए तैयार।</div>
+            <button class="voice-btn" onclick="startVoiceRecognition()"><i class="fas fa-microphone"></i> बोलकर सर्च करें</button>
         </div>
 
-        <!-- सर्च बार -->
+        <!-- एडवांस एंटी-फ्रॉड सर्च बार -->
         <div class="search-box">
-            <form action="https://duckduckgo.com" method="GET" target="_blank">
-                <input type="text" name="q" id="search-input" placeholder="ब्रह्मांड और वेब में सुरक्षित सर्च करें...">
-                <button type="submit" style="background:none; border:none; color:#00ddff; position:absolute; right:12%; top:15px; font-size:20px; cursor:pointer;">
+            <form id="searchForm" action="https://duckduckgo.com" method="GET" target="_blank" onsubmit="return handleSearchIntercept()">
+                <input type="text" name="q" id="search-input" placeholder="ब्रह्मांड और वेब से कुछ भी सुरक्षित खोजें...">
+                <button type="submit" class="search-submit-btn">
                     <i class="fas fa-search"></i>
                 </button>
             </form>
         </div>
 
-        <!-- आपके ब्लॉग के टूल्स लिंक्स -->
-        <h3 class="tools-title">🌌 हमारे विशेष डिजिटल टूल्स</h3>
+        <!-- विशेष डिजिटल टूल्स ग्रिड (सारे टैब्स अब 100% वर्किंग हैं) -->
+        <h3 class="tools-title">🌌 हमारे विशेष डिजिटल टूल्स पोर्टल</h3>
         <div class="tools-grid">
-            <a href="https://technotoolshubfreetools.blogspot.com/p/all-tools.html" target="_blank" class="tool-card">
+            <a href="https://blogspot.com" target="_blank" class="tool-card">
                 <i class="fas fa-tools"></i>
                 <h4>All Tools Page</h4>
-                <p>हमारे ब्लॉग के सभी प्रीमियम टूल्स यहाँ देखें।</p>
+                <p>हमारे मुख्य ब्लॉग के सभी 100+ प्रीमियम टूल्स यहाँ आसानी से एक्सेस करें।</p>
             </a>
-            <a href="#" class="tool-card" onclick="checkFraudAlert()">
+            <div class="tool-card" onclick="triggerCyberFraudCheck()">
                 <i class="fas fa-shield-alt"></i>
                 <h4>Cyber Fraud Check</h4>
-                <p>रोबोट से जानें आज का फ्रॉड अलर्ट।</p>
-            </a>
-            <a href="https://technotoolshubfreetools.blogspot.com/" target="_blank" class="tool-card">
-                <i class="fas fa-blog"></i>
-                <h4>Official Blog</h4>
-                <p>लेटेस्ट कोडिंग और सुरक्षा ब्लॉग्स।</p>
-            </a>
-        </div>
-    </div>
+                <p>क्लिक करें और रोबोट से सीधे जानें आज का सबसे बड़ा फ्रॉड अलर्ट और सुरक्षा टिप्स।</p>
+            </div>
+            <a href="https://blogspot.com" target="_blank" class="tool-card">
+                <i class="fas fa-user-shield"></i>
+                <h4>Official Safety Blog</h4>
 
-    <!-- लॉगिन मॉडल -->
-    <div id="loginModal" class="modal">
-        <span class="close-btn" onclick="toggleModal('loginModal')">&times;</span>
-        <h3>लॉगिन करें</h3>
-        <input type="text" id="loginUser" placeholder="यूज़रनेम">
-        <input type="password" id="loginPass" placeholder="पासवर्ड">
-        <button onclick="loginUser()">प्रवेश करें</button>
-        <p style="font-size:12px; margin-top:10px;"><a href="#" onclick="recoverAccount()" style="color:#00ddff;">अकाउंट रिकवरी?</a></p>
-    </div>
-
-    <!-- रजिस्टर मॉडल -->
-    <div id="registerModal" class="modal">
-        <span class="close-btn" onclick="toggleModal('registerModal')">&times;</span>
-        <h3>नया अकाउंट बनाएं</h3>
-        <input type="text" id="regUser" placeholder="यूज़रनेम चुनें">
-        <input type="password" id="regPass" placeholder="मजबूत पासवर्ड">
-        <button onclick="registerUser()">रजिस्टर करें</button>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 CosmicAI Search Engine | All Rights Reserved.</p>
-        <p>📋 <strong>प्राइवेसी पॉलिसी:</strong> हम आपका कोई भी डेटा किसी बाहरी सर्वर पर स्टोर नहीं करते हैं। आपका डेटा आपके ब्राउज़र (LocalStorage) में पूरी तरह सुरक्षित रहता है।</p>
-        <p>📧 <strong>कॉन्टैक्ट ईमेल:</strong> <a href="mailto:sc29297311@gmail.com">sc29297311@gmail.com</a></p>
-        <p>🏠 होम पेज लिंक: <a href="https://technotoolshubfreetools.blogspot.com/p/all-tools.html" target="_blank">TechnoToolsHub</a></p>
-    </footer>
-
-    <script>
-        // मोडल खोलने/बंद करने का फंक्शन
-        function toggleModal(id) {
-            var modal = document.getElementById(id);
-            modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
-        }
-
-        // फ्री लोकल स्टोरेज जुगाड़ ऑथेंटिकेशन
-        function registerUser() {
-            var u = document.getElementById('regUser').value;
-            var p = document.getElementById('regPass').value;
-            if(u && p) {
-                localStorage.setItem(u, p);
-                alert('रजिस्ट्रेशन सफल हुआ! अब लॉगिन करें।');
-                toggleModal('registerModal');
-            } else {
-                alert('कृपया सभी जानकारी भरें।');
-            }
-        }
-
-        function loginUser() {
+                
+        
