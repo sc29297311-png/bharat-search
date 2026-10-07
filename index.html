@@ -2,169 +2,94 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bharat Search - India Ka Apna Search Engine</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bharat Search - India ka apna Space Edition</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Outfit,sans-serif}
-body{background:#070a18;color:#fff;overflow-x:hidden;min-height:100vh}
-#stars{position:fixed;inset:0;z-index:-1;background:radial-gradient(600px at 20% 10%,#FF993322,transparent),radial-gradient(600px at 90% 20%,#13880833,transparent),#070a18}
-header{position:sticky;top:0;z-index:99;background:rgba(10,12,30,.85);backdrop-filter:blur(12px);border-bottom:1px solid #ffffff22;display:flex;justify-content:space-between;align-items:center;padding:10px 14px}
-.logo{display:flex;gap:10px;align-items:center;font-weight:800}
-.tiranga{width:40px;height:26px;border-radius:4px;display:grid;grid-template-rows:1fr 1fr 1fr;overflow:hidden;border:1px solid #fff5}
-.tiranga span:nth-child(1){background:#FF9933}.tiranga span:nth-child(2){background:#fff;display:flex;align-items:center;justify-content:center;color:#000080;font-size:12px}.tiranga span:nth-child(3){background:#138808}
-.btn{padding:8px 14px;border-radius:99px;border:1px solid #ffffff33;background:#ffffff11;color:#fff;font-weight:700;cursor:pointer}
-.container{max-width:860px;margin:auto;padding:14px}
-.hero{background:linear-gradient(180deg,#ffffff12,#ffffff05);border:1px solid #ffffff22;border-radius:24px;padding:20px;text-align:center;box-shadow:0 10px 40px #0005}
-.hero h1{font-size:30px;background:linear-gradient(90deg,#FF9933,#fff,#138808);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.sBox{display:flex;gap:8px;margin-top:16px}
-.sBox input{flex:1;padding:15px;border-radius:14px;border:1.5px solid #ffffff33;background:#00000088;color:#fff;font-size:16px;outline:none}
-.vBtn{padding:0 18px;border-radius:14px;border:none;background:linear-gradient(90deg,#FF9933,#FF6A00);color:#fff;font-size:22px;font-weight:800;cursor:pointer}
-.micBig{width:100%;margin-top:12px;padding:15px;border-radius:14px;border:none;background:linear-gradient(90deg,#fff,#e5e7ff);color:#000;font-weight:800;font-size:18px;cursor:pointer}
-.card{background:#10132a;border:1px solid #ffffff22;border-radius:16px;padding:14px;margin-top:12px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
-.tool{background:#ffffff0e;border:1px solid #ffffff22;border-radius:12px;padding:12px;text-align:center;cursor:pointer;font-weight:700}
-.tool:hover{background:#ffffff1a}
-.iconRow{display:flex;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap}
-.iconRow a{padding:10px 16px;border-radius:99px;background:#fff;color:#000;text-decoration:none;font-weight:800;font-size:13px}
-.foot{text-align:center;padding:18px;font-size:12px;opacity:.7}
-.foot a{color:#FF9933;text-decoration:none}
-#auth{position:fixed;inset:0;background:#000c;display:none;align-items:center;justify-content:center;z-index:999}
-.authBox{background:#131632;border:1px solid #ffffff33;padding:20px;border-radius:18px;width:90%;max-width:340px}
-.authBox input{width:100%;padding:12px;margin-top:8px;border-radius:10px;border:1px solid #ffffff33;background:#000;color:#fff}
-.bRow{display:flex;gap:6px;margin-top:8px}
-.bRow button{flex:1;padding:11px;border-radius:10px;border:none;font-weight:800;cursor:pointer}
-.blogOut{background:#000;border:1px solid #ffffff22;padding:12px;border-radius:10px;margin-top:10px;white-space:pre-wrap;display:none;max-height:400px;overflow:auto;font-size:13px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
+body{background:#000;color:#fff;overflow-x:hidden}
+#stars{position:fixed;inset:0;z-index:-1;background:#000}
+#stars::before,#stars::after{content:'';position:absolute;inset:0;background-image:radial-gradient(2px 2px at 20% 30%,#fff,transparent),radial-gradient(2px 2px at 40% 70%,#fff,transparent),radial-gradient(1px 1px at 90% 40%,#fff,transparent);animation:twinkle 4s infinite alternate}
+@keyframes twinkle{0%{opacity:.5}100%{opacity:1}}
+header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#000000aa;backdrop-filter:blur(10px);border-bottom:1px solid #ffffff22;position:sticky;top:0;z-index:10}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:18px}
+.logo img{width:44px;height:44px;border-radius:10px;border:1px solid #ffffff44;box-shadow:0 0 20px #FF993388}
+.btn{padding:8px 12px;border-radius:20px;border:1px solid #ffffff33;background:#111;color:#fff;font-size:13px}
+.container{max-width:700px;margin:auto;padding:20px}
+.hero{text-align:center;margin:24px 0}
+.hero h1{font-size:26px;background:linear-gradient(90deg,#FF9933,#fff,#138808);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:900}
+.sBox{display:flex;gap:8px;background:#111;border:1px solid #ffffff33;border-radius:30px;padding:8px 14px;margin-top:18px}
+.sBox input{flex:1;background:transparent;border:none;outline:none;color:#fff;font-size:16px}
+.vBtn{width:44px;height:44px;border-radius:50%;border:none;background:linear-gradient(135deg,#FF9933,#138808);font-size:20px}
+.bRow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
+.bRow button{padding:11px;border-radius:10px;border:none;font-weight:600;background:#111;color:#fff;border:1px solid #ffffff22}
+.blogOut{background:#000;border:1px solid #ffffff22;padding:12px;border-radius:12px;margin-top:20px;text-align:center}
+footer{text-align:center;opacity:.6;font-size:12px;margin:20px 0}
 </style>
 </head>
 <body>
 <div id="stars"></div>
 <header>
-<div class="logo"><div class="tiranga"><span></span><span>☸</span><span></span></div> Bharat Search</div>
-<div style="display:flex;gap:6px"><button class="btn" onclick="openAuth()">Login</button><button class="btn" onclick="location.href='#tools'">Tools</button></div>
+<div class="logo">
+<img src="logo.png">
+Bharat Search
+</div>
+<div style="display:flex;gap:6px"><button class="btn" onclick="openAbout()">About</button><button class="btn" onclick="openPrivacy()">Privacy</button></div>
 </header>
 
 <div class="container">
 <div class="hero">
 <h1>🇮🇳 Bharat Search - Space Edition</h1>
-<p style="opacity:.8;margin-top:4px">India Ka Apna Private Search Engine - Voice + Tools + No Ads Tracking</p>
+<p style="opacity:.8;margin-top:4px">India Ka Apna Private Search Engine</p>
 <div class="sBox">
-<input id="sInput" placeholder="बोलो या लिखो... जैसे calculator, youtube video, ladli behna">
+<input id="sInput" placeholder="बोलो या लिखो... जैसे calculator, youtube video">
 <button class="vBtn" onclick="startVoice()">🎙️</button>
 </div>
-<button class="micBig" onclick="startVoice()">🎙️ बोलो भारत - Mic से खोजो और सुनो</button>
-<p id="vStatus" style="font-size:12px;margin-top:8px;color:#FFD59A">Mic दबाओ - Robot बोलेगा "आपने ये खोजा"</p>
-<div class="iconRow">
-<a href="https://technotoolshubfreetools.blogspot.com/p/all-tools.html" target="_blank">🧰 मेरा Blog - All Tools</a>
-<a href="mailto:sc29297311@gmail.com">📧 sc29297311@gmail.com</a>
-<a href="#privacy">🔒 Privacy</a>
+<p id="voiceTxt" style="margin-top:8px;color:#FF9933"></p>
+</div>
+
+<div class="bRow">
+<button onclick="doSearch('calculator')">🧮 Calculator</button>
+<button onclick="doSearch('age calculator')">🎂 Age Calc</button>
+<button onclick="doSearch('bmi calculator')">💪 BMI</button>
+<button onclick="doSearch('qr code generator')">🔳 QR Code</button>
+<button onclick="doSearch('emi calculator')">🏦 EMI Calc</button>
+<button onclick="doSearch('youtube')">▶️ YouTube</button>
+<button onclick="doSearch('instagram')">📸 Insta</button>
+<button onclick="doSearch('google map')">🗺️ Map</button>
+<button onclick="doSearch('weather')">⛅ Weather</button>
+</div>
+
+<div class="blogOut">
+<a href="https://sc29297311.blogspot.com" style="color:#FF9933;text-decoration:none;font-weight:700">🧰 मेरा Blog - All Tools</a>
+<div style="margin-top:8px">📧 sc29297311@gmail.com</div>
 </div>
 </div>
 
-<div id="results"></div>
-
-<div id="robotCard" class="card" style="display:none;border:1px solid #FF9933">
-<b>🤖 Bharat Diesel Robot LIVE</b> <span id="rTopic" style="font-size:12px;opacity:.7"></span>
-<div class="grid" style="grid-template-columns:1fr 1fr">
-<button class="btn" style="background:linear-gradient(90deg,#FF9933,#ff8c00);border:none" onclick="runRobot('blog')">🚀 Blog बनाओ</button>
-<button class="btn" style="background:linear-gradient(90deg,#ff0040,#ff5e5e);border:none" onclick="runRobot('youtube')">📺 YouTube Pack</button>
-</div>
-<button class="btn" style="width:100%;margin-top:8px;background:linear-gradient(90deg,#138808,#1ecb1e);border:none" onclick="runRobot('yojana')">🏛️ Yojana / Form निकालो</button>
-<div id="blogOut" class="blogOut"></div>
-<div class="bRow"><button onclick="copyBlog()" style="background:#fff;color:#000">📋 Copy</button><button onclick="shareBlog()" style="background:#111;color:#fff;border:1px solid #ffffff33">📤 Share Viral</button></div>
-</div>
-
-<h3 id="tools" style="margin-top:18px">🧰 दुनिया के सारे Free Tools - बिना Copyright (मेरा Code)</h3>
-<div class="grid">
-<div class="tool" onclick="runTool('calc')">🧮 Calculator</div>
-<div class="tool" onclick="runTool('age')">🎂 Age</div>
-<div class="tool" onclick="runTool('bmi')">⚖️ BMI</div>
-<div class="tool" onclick="runTool('qr')">🔳 QR Maker</div>
-<div class="tool" onclick="runTool('words')">🔤 Words Counter</div>
-<div class="tool" onclick="runTool('pass')">🔑 Password Gen</div>
-<div class="tool" onclick="runTool('emi')">🏦 EMI Calc</div>
-<div class="tool" onclick="runTool('gst')">💰 GST Calc</div>
-<div class="tool" onclick="runTool('unit')">📏 Unit Converter</div>
-</div>
-
-<div id="toolBox" class="card" style="display:none"></div>
-
-<div id="privacy" class="card">
-<h3>🔒 Privacy Policy + Contact + Earning</h3>
-<p style="font-size:13px;margin-top:8px;opacity:.9">
-- Bharat Search कोई Data नहीं चुराता, कोई Tracking नहीं। Login सिर्फ LocalStorage में Save होता है।<br>
-- सारे Tools मेरे खुद के JavaScript से बने हैं, कोई बाहर की Paid Library नहीं, इसलिए <b>Copyright Case कभी नहीं आएगा - Guarantee</b><br>
-- Search के लिए सिर्फ Free Public APIs: DuckDuckGo + Wikipedia (Open Source)<br>
-- <b>Contact:</b> <a href="mailto:sc29297311@gmail.com" style="color:#FF9933">sc29297311@gmail.com</a><br>
-- <b>My Blog Tools:</b> <a href="https://technotoolshubfreetools.blogspot.com/p/all-tools.html" target="_blank" style="color:#FF9933">technotoolshubfreetools.blogspot.com</a><br>
-- <b>कमाई कैसे होगी?</b> 1) Blog Link से Traffic -> AdSense 2) नीचे Ad Box में अपना AdSense Code Paste करना (मैंने जगह बना दी है) 3) Yojana / Tools Viral होने से। तुम्हे कभी पैसा नहीं देना, सिर्फ कमाई होगी।<br>
-- Made in Jabalpur, MP - 100% Swadeshi
-</p>
-<div style="margin-top:10px;padding:10px;border:1px dashed #ffffff33;border-radius:10px;text-align:center;font-size:12px">📢 Ad Space - अपना AdSense Code यहाँ Paste करना<br>&lt;script&gt;...ads...&lt;/script&gt;</div>
-</div>
-
-</div>
-<div class="foot">© 2026 Bharat Search | Made by Jabalpur | <a href="mailto:sc29297311@gmail.com">sc29297311@gmail.com</a> | <a href="https://technotoolshubfreetools.blogspot.com/p/all-tools.html" target="_blank">All Tools</a></div>
-
-<div id="auth"><div class="authBox"><h3>Login / Register - Free</h3><input id="uName" placeholder="नाम"><input id="uEmail" type="email" placeholder="Email"><div class="bRow"><button onclick="doLogin()" style="background:#fff;color:#000">Login</button><button onclick="closeAuth()" style="background:#ffffff11;color:#fff;border:1px solid #ffffff33">Close</button></div><p style="font-size:11px;margin-top:8px;opacity:.6">Local में Save होगा, कोई पैसा नहीं, कोई Server नहीं</p></div></div>
+<footer>Bharat Search © 2026 | Jabalpur se Bharat Tak 🚀</footer>
 
 <script>
-// Auth
-function openAuth(){document.getElementById('auth').style.display='flex'}
-function closeAuth(){document.getElementById('auth').style.display='none'}
-function doLogin(){let n=document.getElementById('uName').value, e=document.getElementById('uEmail').value; if(!n||!e){alert('नाम Email भर'); return} localStorage.setItem('bharat_user',JSON.stringify({n,e})); alert('Login हो गया '+n); closeAuth()}
-
-// Search + Robot + Voice with Speak
-let curTopic='', curBlog='';
-document.getElementById('sInput').addEventListener('input', async e=>{
- let q=e.target.value.trim(), r=document.getElementById('results'), rc=document.getElementById('robotCard');
- if(q.length<2){r.innerHTML='';rc.style.display='none';return}
- curTopic=q;
- let h=`<div class="card">🔍 <b>${q}</b> - <a href="https://duckduckgo.com/?q=${encodeURIComponent(q)}" target="_blank" style="color:#FF9933">DuckDuckGo पर देखो</a> | <a href="https://www.google.com/search?q=${encodeURIComponent(q)}" target="_blank" style="color:#aaa">Google</a> | <a href="${'https://technotoolshubfreetools.blogspot.com/p/all-tools.html'}" target="_blank" style="color:#1ecb1e">My Tools</a></div>`;
- try{let res=await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(q)); if(res.ok){let d=await res.json(); if(d.extract) h+=`<div class="card">📚 ${d.title}: ${d.extract.slice(0,180)}...</div>`}}catch{}
- r.innerHTML=h; rc.style.display='block'; document.getElementById('rTopic').innerText='Topic: '+q;
-});
+function doSearch(q){
+let v=document.getElementById('sInput').value||q;
+if(!v)return;
+document.getElementById('voiceTxt').innerText='आपने खोजा: '+v;
+setTimeout(()=>{window.open('https://www.google.com/search?q='+encodeURIComponent(v),'_blank')},500);
+}
 function startVoice(){
- if(!('webkitSpeechRecognition' in window) &&!('SpeechRecognition' in window)){alert('Chrome में खोलो'); return}
- let R=window.SpeechRecognition||window.webkitSpeechRecognition; let rec=new R(); rec.lang='hi-IN';
- rec.onstart=()=>document.getElementById('vStatus').innerText='🎙️ सुन रहा हूँ... बोलो';
- rec.onresult=(e)=>{
-  let t=e.results[0][0].transcript;
-  document.getElementById('sInput').value=t;
-  document.getElementById('vStatus').innerText='✅ आपने खोजा: '+t;
-  document.getElementById('sInput').dispatchEvent(new Event('input'));
-  let ut=new SpeechSynthesisUtterance('आपने खोजा '+t+', नीचे रिजल्ट देखिए');
-  ut.lang='hi-IN'; speechSynthesis.speak(ut);
- };
- rec.onerror=()=>document.getElementById('vStatus').innerText='Mic Error - फिर दबाओ';
- rec.start();
+let r=new (window.SpeechRecognition||window.webkitSpeechRecognition)();
+r.lang='hi-IN'; r.start();
+document.getElementById('voiceTxt').innerText='सुन रहा हूँ...';
+r.onresult=(e)=>{
+let t=e.results[0][0].transcript;
+document.getElementById('sInput').value=t;
+doSearch(t);
+let u=new SpeechSynthesisUtterance('आपने खोजा '+t);
+u.lang='hi-IN'; speechSynthesis.speak(u);
 }
-async function runRobot(type){
- let q=curTopic||document.getElementById('sInput').value||'Bharat'; let out=document.getElementById('blogOut'); out.style.display='block'; out.innerText='🤖 Robot बना रहा है...';
- let wiki=''; try{let res=await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/'+encodeURIComponent(q)); if(res.ok){let d=await res.json(); wiki=d.extract||''}}catch{wiki='Free Source Info'}
- if(type=='blog'){curBlog=`# ${q} Complete Guide 2026 - Bharat Search\n\n${wiki}\n\n## ${q} क्या है?\nये Article Bharat Search Robot ने Free Data से बनाया है।\n\nMy Tools: https://technotoolshubfreetools.blogspot.com/p/all-tools.html\nContact: sc29297311@gmail.com\n\nSEO Tags: ${q}, bharat search, jabalpur mp`;}
- else if(type=='youtube'){curBlog=`TITLE: ${q} - Full Guide 2026 | Bharat Search\n\nDESC:\n${wiki}\n\nMy Blog Tools: https://technotoolshubfreetools.blogspot.com/p/all-tools.html\nContact: sc29297311@gmail.com\n\n#${q.replace(/\s/g,'')} #BharatSearch\nThumbnail: ${q.toUpperCase()}?`;}
- else {curBlog=`YOJANA: ${q}\n\n${wiki}\n\nLinks:\n1. myscheme.gov.in/search?query=${encodeURIComponent(q)}\n2. mp.gov.in\n3. Blog: https://technotoolshubfreetools.blogspot.com/p/all-tools.html\n\nEmail: sc29297311@gmail.com`;}
- out.innerText=curBlog;
- let u2=new SpeechSynthesisUtterance(type=='yojana'?'योजना मिल गई':'ब्लॉग बन गया'); u2.lang='hi-IN'; speechSynthesis.speak(u2);
 }
-function copyBlog(){navigator.clipboard.writeText(document.getElementById('blogOut').innerText); alert('Copied!')}
-function shareBlog(){if(navigator.share){navigator.share({title:curTopic,text:document.getElementById('blogOut').innerText})}else{copyBlog()}}
-
-// Free Tools - 100% My Code No Copyright
-function runTool(t){
- let b=document.getElementById('toolBox'); b.style.display='block';
- if(t=='calc') b.innerHTML=`<h3>Calculator</h3><input id="cIn" style="width:100%;padding:12px;border-radius:10px;background:#000;color:#fff;border:1px solid #ffffff33" placeholder="जैसे 15*5+20"><button class="btn" style="margin-top:8px;background:#fff;color:#000" onclick="b.querySelector('#cOut').innerText='='+eval(document.getElementById('cIn').value)">=</button><div id="cOut" style="margin-top:8px;font-weight:800"></div>`;
- if(t=='age') b.innerHTML=`<h3>Age Calculator</h3><input id="dob" type="date" style="width:100%;padding:12px;border-radius:10px;background:#000;color:#fff;border:1px solid #ffffff33"><button class="btn" style="margin-top:8px;background:#fff;color:#000" onclick="let d=new Date(document.getElementById('dob').value);let diff=Date.now()-d;let age=Math.floor(diff/31557600000);this.nextElementSibling.innerText='Age: '+age+' Years'">Calculate</button><div style="margin-top:8px"></div>`;
- if(t=='bmi') b.innerHTML=`<h3>BMI</h3><input id="h" placeholder="Height cm" style="width:100%;padding:10px;border-radius:10px;background:#000;color:#fff;border:1px solid #ffffff33"><input id="w" placeholder="Weight kg" style="width:100%;padding:10px;margin-top:6px;border-radius:10px;background:#000;color:#fff;border:1px solid #ffffff33"><button class="btn" style="margin-top:8px;background:#fff;color:#000" onclick="let h=document.getElementById('h').value/100,w=document.getElementById('w').value,b=w/(h*h);this.nextElementSibling.innerText='BMI: '+b.toFixed(2)">Calc BMI</button><div style="margin-top:8px"></div>`;
- if(t=='qr') b.innerHTML=`<h3>QR Maker - Free</h3><input id="qrT" placeholder="Text / Link" style="width:100%;padding:12px;border-radius:10px;background:#000;color:#fff;border:1px solid #ffffff33"><button class="btn" style="margin-top:8px;background:#fff;color:#000" onclick="let v=document.getElementById('qrT').value; this.nextElementSibling.innerHTML='<img src=https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+encodeURIComponent(v)+' >'">Generate</button><div style="margin-top:10px"></div><p style="font-size:11px;opacity:.6">QR API is free public (qrserver.com) - no copyright</p>`;
- if(t=='words') b.innerHTML=`<h3>Word Counter</h3><textarea id="wc" style="width:100%;height:100px;padding:10px;border-radius:10px;background:#000;color:#fff;border:1px solid #ffffff33"></textarea><button class="btn" style="margin-top:8px;background:#fff;color:#000" onclick="let t=document.getElementById('wc').value; this.nextElementSibling.innerText='Words: '+t.split(/\\s+/).filter(x=>x).length+' | Chars: '+t.length">Count</button><div style="margin-top:8px"></div>`;
- if(t=='pass') b.innerHTML=`<h3>Password Generator</h3><button class="btn" style="background:#fff;color:#000" onclick="let c='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#';let p='';for(let i=0;i<12;i++)p+=c[Math.floor(Math.random()*c.length)];this.nextElementSibling.innerText=p">Generate Strong Pass</button><div style="margin-top:10px;font-weight:800;letter-spacing:2px"></div>`;
- if(t=='emi') b.innerHTML=`<h3>EMI Calculator</h3><input id="p" placeholder="Loan Amount" style="width:100%;padding:10px;border-radius:10px;background:#000;color:#fff;border:1px solid #ffffff33"><input id="r" placeholder="Rate %" style="width:100%;padding:10px;margin-top:6px;border-radius:10px;background:#000;color:#fff;border:1px solid #ffffff33"><input id="n" placeholder="Months" style="width:100%;padding:10px;margin-top:6px;border-radius:10px;background:#000;color:#fff;border:1px solid #ffffff33"><button class="btn" style="margin-top:8px;background:#fff;color:#000" onclick="let P=+document.getElementById('p').value,R=+document.getElementById('r').value/12/100,N=+document.getElementById('n').value,emi=P*R*Math.pow(1+R,N)/(Math.pow(1+R,N)-1);this.nextElementSibling.innerText='EMI: ₹'+emi.toFixed(2)">Calc EMI</button><div style="margin-top:8px"></div>`;
- if(t=='gst') b.innerHTML=`<h3>GST Calculator</h3><input id="amt" placeholder="Amount" style="width:100%;padding:10px;border-radius:10px;background:#000;color:#fff;border:1px solid #ffffff33"><input id="gstp" placeholder="GST % e.g. 18" style="width:100%;padding:10px;margin-top:6px;border-radius:10px;background:#000;color:#fff;border:1px solid #ffffff33"><button class="btn" style="margin-top:8px;background:#fff;color:#000" onclick="let a=+document.getElementById('amt').value,g=+document.getElementById('gstp').value,tot=a+a*g/100;this.nextElementSibling.innerText='Total: ₹'+tot+' (GST ₹'+(a*g/100)+')'">Calc</button><div style="margin-top:8px"></div>`;
- if(t=='unit') b.innerHTML=`<h3>Unit Converter - KM to M</h3><input id="km" placeholder="KM" style="width:100%;padding:10px;border-radius:10px;background:#000;color:#fff;border:1px solid #ffffff33"><button class="btn" style="margin-top:8px;background:#fff;color:#000" onclick="let k=+document.getElementById('km').value;this.nextElementSibling.innerText=k+' KM = '+(k*1000)+' Meter'">Convert</button><div style="margin-top:8px"></div>`;
- b.scrollIntoView({behavior:'smooth'});
-}
+function openAbout(){alert('Bharat Search - Jabalpur ke ladke dwara banaya gaya India ka Space Edition Search Engine')}
+function openPrivacy(){alert('Privacy: Hum aapka data save nahi karte. 100% Private.')}
+document.getElementById('sInput').addEventListener('keydown',e=>{if(e.key==='Enter')doSearch()});
 </script>
 </body>
 </html>
