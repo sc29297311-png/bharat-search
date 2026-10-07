@@ -1,13 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>भारत सर्च AI - भारत का अपना स्मार्ट सर्च इंजन</title>
-    <!-- FontAwesome Premium Icons -->
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cloudflare.com">
     <style>
-        /* आधुनिक स्पेस और नियॉन थीम */
+        /* अंतरिक्ष स्टाइल थीम */
         body {
             margin: 0;
             padding: 0;
@@ -24,256 +25,212 @@
             z-index: -1;
         }
 
-        /* कमाई के लिए एडवरटाइजमेंट जोन (Ads Slot) */
-        .ads-zone {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px dashed #00ddff;
-            max-width: 728px;
-            margin: 15px auto;
-            padding: 10px;
-            text-align: center;
-            font-size: 12px;
-            color: #00ddff;
-            border-radius: 8px;
-        }
-
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 40px;
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(15px);
-            border-bottom: 2px solid rgba(0, 221, 255, 0.2);
-            box-shadow: 0 4px 20px rgba(0, 221, 255, 0.1);
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid rgba(0, 221, 255, 0.3);
         }
 
         .logo-area {
-            font-size: 28px;
-            font-weight: 800;
+            font-size: 26px;
+            font-weight: bold;
             color: #00ddff;
-            text-shadow: 0 0 15px #00ddff;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            text-shadow: 0 0 10px #00ddff;
         }
 
         .auth-cluster button {
-            background: linear-gradient(45deg, rgba(0,221,255,0.1), rgba(0,119,255,0.1));
+            background: transparent;
             border: 1px solid #00ddff;
             color: #00ddff;
-            padding: 10px 22px;
-            border-radius: 25px;
+            padding: 8px 18px;
+            border-radius: 20px;
             cursor: pointer;
             font-weight: bold;
-            transition: 0.3s all ease;
+            transition: 0.3s;
             margin-left: 10px;
         }
 
         .auth-cluster button:hover {
             background: #00ddff;
             color: #000;
-            box-shadow: 0 0 20px #00ddff;
-            transform: scale(1.05);
+            box-shadow: 0 0 15px #00ddff;
         }
 
         .container {
-            max-width: 1000px;
-            margin: 30px auto;
+            max-width: 900px;
+            margin: 40px auto;
             text-align: center;
             padding: 20px;
         }
 
-        /* 3D रोबोट हब */
-        .robot-hub {
-            margin-bottom: 30px;
-        }
-
+        /* रोबोट हब */
         .robot-avatar {
-            font-size: 90px;
+            font-size: 80px;
             color: #00ddff;
             animation: floatAnim 3s ease-in-out infinite;
-            text-shadow: 0 0 30px rgba(0, 221, 255, 0.6);
+            text-shadow: 0 0 20px #00ddff;
             display: inline-block;
         }
 
         @keyframes floatAnim {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); color: #ff0077; text-shadow: 0 0 30px #ff0077; }
+            50% { transform: translateY(-12px); color: #ff0077; text-shadow: 0 0 20px #ff0077; }
         }
 
         .ai-bubble {
-            background: rgba(10, 25, 47, 0.7);
-            border: 1px solid #00ddff;
-            border-radius: 20px;
-            padding: 20px;
-            max-width: 70%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 221, 255, 0.2);
+            border-radius: 15px;
+            padding: 15px;
+            max-width: 80%;
             margin: 20px auto;
             font-size: 18px;
-            box-shadow: 0 0 15px rgba(0, 221, 255, 0.1);
         }
 
         .mic-trigger {
             background: linear-gradient(45deg, #ff0077, #7928ca);
             border: none; color: white;
-            padding: 14px 32px; border-radius: 35px;
+            padding: 12px 28px; border-radius: 30px;
             font-size: 16px; cursor: pointer; font-weight: bold;
-            box-shadow: 0 0 20px #ff0077;
-            transition: 0.3s ease;
+            box-shadow: 0 0 15px #ff0077;
+            transition: 0.3s;
         }
 
-        .mic-trigger:hover {
-            transform: scale(1.08);
-            box-shadow: 0 0 30px #7928ca;
-        }
-
-        /* गूगल स्टाइल स्मार्ट सर्च फ्रेमवर्क */
+        /* सर्च बॉक्स */
         .search-engine-core {
             position: relative;
             max-width: 700px;
-            margin: 40px auto;
+            margin: 30px auto;
         }
 
         .search-engine-core input {
             width: 100%;
-            padding: 18px 70px 18px 30px;
-            border-radius: 50px;
+            padding: 16px 60px 16px 25px;
+            border-radius: 40px;
             border: 2px solid #00ddff;
             background: rgba(0, 0, 0, 0.8);
             color: #ffffff;
             font-size: 18px;
             outline: none;
             box-sizing: border-box;
-            box-shadow: 0 0 25px rgba(0, 221, 255, 0.2);
-            transition: 0.3s;
-        }
-
-        .search-engine-core input:focus {
-            border-color: #ff0077;
-            box-shadow: 0 0 30px rgba(255, 0, 119, 0.4);
+            box-shadow: 0 0 15px rgba(0, 221, 255, 0.2);
         }
 
         .search-action-btn {
             position: absolute;
-            right: 25px; top: 16px;
+            right: 20px; top: 14px;
             background: none; border: none;
-            color: #00ddff; font-size: 24px;
+            color: #00ddff; font-size: 22px;
             cursor: pointer;
         }
 
-        .search-action-btn:hover { color: #ff0077; }
-
-        /* टूल्स और लिंक्स ग्रिड - 100% वर्किंग लिंक */
+        /* डिजिटल गेटवे ग्रिड */
         .section-headline {
-            color: #00ddff; margin-top: 60px; font-size: 26px;
-            text-shadow: 0 0 10px rgba(0, 221, 255, 0.3);
+            color: #00ddff; margin-top: 50px; font-size: 24px;
         }
 
         .grid-layout {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px; margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px; margin-top: 25px;
         }
 
         .portal-card {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 30px; border-radius: 20px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 25px; border-radius: 15px;
             border: 1px solid rgba(0, 221, 255, 0.15);
             text-decoration: none; color: #ffffff;
-            transition: 0.3s all ease;
+            transition: 0.3s;
             display: block;
             box-sizing: border-box;
+            cursor: pointer;
         }
 
         .portal-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             border-color: #ff0077;
-            background: rgba(255, 255, 255, 0.07);
-            box-shadow: 0 10px 25px rgba(255, 0, 119, 0.3);
+            box-shadow: 0 0 15px rgba(255, 0, 119, 0.3);
         }
 
         .portal-card i {
-            font-size: 50px; color: #00ddff; margin-bottom: 20px;
+            font-size: 45px; color: #00ddff; margin-bottom: 15px;
         }
 
-        /* 100% वर्किंग पॉपअप (Modal Overlay Included) */
-        .overlay-layer {
+        /* मोडल बैकग्राउंड ओवरले (फिक्स्ड) */
+        #modalOverlay {
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            z-index: 999;
-            backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 998;
         }
 
+        /* पॉपअप विंडोज़ */
         .popup-window {
             display: none;
             position: fixed;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            background: linear-gradient(145deg, #070f26, #131c38);
-            padding: 40px; border-radius: 25px;
+            background: #0f172a;
+            padding: 30px; border-radius: 20px;
             border: 2px solid #00ddff;
-            z-index: 1000;
-            width: 340px;
-            box-shadow: 0 0 40px rgba(0, 221, 255, 0.4);
+            z-index: 999;
+            width: 320px;
             box-sizing: border-box;
             text-align: center;
+            box-shadow: 0 0 25px rgba(0, 221, 255, 0.4);
         }
 
         .popup-window input {
-            width: 100%; padding: 14px; margin: 15px 0;
-            background: rgba(0,0,0,0.6); border: 1px solid rgba(0, 221, 255, 0.3);
-            color: #fff; border-radius: 10px; box-sizing: border-box;
+            width: 100%; padding: 12px; margin: 12px 0;
+            background: rgba(0,0,0,0.5); border: 1px solid #00ddff;
+            color: #fff; border-radius: 8px; box-sizing: border-box;
             outline: none;
         }
 
         .popup-window button {
-            background: linear-gradient(45deg, #00ddff, #0077ff);
-            border: none; padding: 14px; color: #000; font-weight: bold;
-            border-radius: 10px; cursor: pointer; width: 100%; margin-top: 10px;
+            background: #00ddff; border: none; padding: 12px; color: #000;
+            font-weight: bold; border-radius: 8px; cursor: pointer; width: 100%;
         }
 
-        .popup-window button:hover { box-shadow: 0 0 20px #00ddff; }
-        .dismiss-btn { position: absolute; right: 20px; top: 15px; cursor: pointer; color: #ff0077; font-size: 24px; }
+        .dismiss-btn { position: absolute; right: 15px; top: 10px; cursor: pointer; color: #ff0077; font-size: 24px; }
 
         footer {
-            background: #00020a;
-            padding: 40px 20px; text-align: center;
+            background: #01040a;
+            padding: 30px 20px; text-align: center;
             border-top: 2px solid rgba(0, 221, 255, 0.2);
-            margin-top: 100px;
+            margin-top: 80px;
         }
-        footer p { margin: 12px 0; color: #a1a1aa; }
+        footer p { margin: 10px 0; color: #94a3b8; font-size: 14px; }
         footer a { color: #00ddff; text-decoration: none; font-weight: bold; }
-        footer a:hover { color: #ff0077; }
     </style>
 </head>
 <body>
 
     <div class="stars-bg"></div>
-
-    <!-- ऊपरी कमाई विज्ञापन स्लॉट -->
-    <div class="ads-zone">
-        <i class="fas fa-ad"></i> विज्ञापन स्लॉट (यहाँ अपना Google AdSense कोड डालें और कमाई शुरू करें)
-    </div>
+    <div id="modalOverlay" onclick="closeAllPopups()"></div>
 
     <header>
         <div class="logo-area"><i class="fas fa-globe-asia"></i> भारत सर्च AI</div>
         <div class="auth-cluster">
             <button onclick="launchPopup('loginBox')">लॉगिन</button>
-            <button onclick="launchPopup('registerBox')">रजिस्टर</button>
+            <button onclick="changePopup('registerBox')">रजिस्टर</button>
         </div>
     </header>
 
     <div class="container">
-        <!-- 3D इंटरैक्टिव रोबोट -->
+        <!-- सुरक्षा रोबोट -->
         <div class="robot-hub">
             <div class="robot-avatar" id="botFace"><i class="fas fa-robot"></i></div>
             <div class="ai-bubble" id="botSpeech">नमस्ते! मैं भारत सर्च का एडवांस सुरक्षा रोबोट हूँ। आपका सर्च पूरी तरह एन्क्रिप्टेड और सुरक्षित है।</div>
             <button class="mic-trigger" onclick="initiateVoice()"><i class="fas fa-microphone"></i> बोलकर खोजें</button>
         </div>
 
-        <!-- बिना कॉपीराइट का गूगल स्टाइल सर्च आर्किटेक्चर (DuckDuckGo Secured Link) -->
+        <!-- बिना कॉपीराइट का सुरक्षित सर्च इंजन -->
         <div class="search-engine-core">
             <form action="https://duckduckgo.com" method="GET" target="_blank" onsubmit="return evaluateQuery()">
                 <input type="text" name="q" id="queryInput" placeholder="वेबसाइट, कोडिंग या साइबर सुरक्षा से जुड़ा कुछ भी खोजें...">
@@ -281,9 +238,43 @@
             </form>
         </div>
 
-        <!-- आपके ब्लॉग के सभी वर्किंग लिंक्स और साइबर सुरक्षा टैब -->
+        <!-- टूल्स ग्रिड पोर्टल -->
         <h3 class="section-headline">🌌 भारत सर्च स्पेशल डिजिटल गेटवे</h3>
         <div class="grid-layout">
-            <!-- आपका ब्लॉग पेज 100% वर्किंग लिंक -->
+            <!-- मुख्य ब्लॉग टूल्स पेज -->
             <a href="https://blogspot.com" target="_blank" class="portal-card">
-                    
+                <i class="fas fa-cubes"></i>
+                <h4>All Tools Page</h4>
+                <p>हमारे मुख्य ब्लॉग पोर्टल के सभी 100+ प्रीमियम फ्री टूल्स यहाँ एक क्लिक में खोलें।</p>
+            </a>
+
+            <!-- साइबर सुरक्षा चेकर टैब -->
+            <div class="portal-card" onclick="runAntiFraudCheck()">
+                <i class="fas fa-user-shield"></i>
+                <h4>Cyber Fraud Check</h4>
+                <p>क्लिक करें! रोबोट आपको आज का सबसे खतरनाक लाइव फ्रॉड और उससे बचने का तरीका बताएगा।</p>
+            </div>
+
+            <!-- मुख्य ब्लॉग होमपेज -->
+            <a href="https://blogspot.com" target="_blank" class="portal-card">
+                <i class="fas fa-laptop-code"></i>
+                <h4>Official Blog Home</h4>
+                <p>लेटेस्ट साइबर सिक्योरिटी रिसर्च, फ्री कोडिंग स्क्रिप्ट्स और एडवांस टिप्स सीखें।</p>
+            </a>
+        </div>
+    </div>
+
+    <!-- लॉगिन बॉक्स -->
+    <div id="loginBox" class="popup-window">
+        <span class="dismiss-btn" onclick="shutdownPopup('loginBox')">&times;</span>
+        <h3><i class="fas fa-fingerprint"></i> सुरक्षित लॉगिन</h3>
+        <input type="text" id="userIn" placeholder="यूज़रनेम भरें">
+        <input type="password" id="passIn" placeholder="सुरक्षित पासवर्ड">
+        <button onclick="processLogin()">प्रवेश करें</button>
+        <p style="font-size:12px; margin-top:15px;"><a href="#" onclick="processRecovery()" style="color:#00ddff;">पासवर्ड रिकवरी</a></p>
+    </div>
+
+    <!-- रजिस्टर बॉक्स -->
+    <div id="registerBox" class="popup-window">
+        <span class="dismiss-btn" onclick="shutdownPopup('registerBox')">&times;</span>
+        <h3><i class="fas fa-user-plus"></i> नया अकाउंट</h3>
